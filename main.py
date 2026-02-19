@@ -8,7 +8,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from src.indexer import FeedbackIndexer
-from src.llm_client import OpenAIClient
+from src.llm_client import GroqClient
 from src.rag_pipeline import RAGPipeline
 from src.retriever import FeedbackRetriever
 
@@ -32,7 +32,7 @@ async def query_command(
 ) -> None:
     """Query the RAG system."""
     retriever = FeedbackRetriever(index_path=index_path, top_k=top_k)
-    llm_client = OpenAIClient(model=model)
+    llm_client = GroqClient(model=model)
     pipeline = RAGPipeline(retriever=retriever, llm_client=llm_client)
 
     print(f"Querying: {query}\n")
@@ -82,8 +82,8 @@ async def main() -> None:
     query_parser.add_argument(
         "--model",
         type=str,
-        default="gpt-4o-mini",
-        help="OpenAI model to use (default: gpt-4o-mini)",
+        default="qwen/qwen3-32b",
+        help="Groq model to use (default: qwen/qwen3-32b)",
     )
     query_parser.add_argument(
         "--top-k",

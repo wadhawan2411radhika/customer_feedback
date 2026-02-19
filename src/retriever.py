@@ -7,7 +7,7 @@ from typing import Any
 import chromadb
 from chromadb.config import Settings
 
-from src.embeddings import OpenAIEmbeddings
+from src.embeddings import LocalEmbeddings
 from src.models import SearchResult
 
 
@@ -17,13 +17,13 @@ class FeedbackRetriever:
     def __init__(
         self,
         index_path: Path = Path(".chroma_db"),
-        embedding_model: str = "text-embedding-3-small",
+        embedding_model: str = "BAAI/bge-small-en-v1.5",
         top_k: int = 5,
         api_key: str | None = None,
     ):
         self.index_path = Path(index_path)
         self.embedding_model_name = embedding_model
-        self.embeddings_client = OpenAIEmbeddings(api_key=api_key, model=embedding_model)
+        self.embeddings_client = LocalEmbeddings(model=embedding_model)
         self.top_k = top_k
         self.client = chromadb.PersistentClient(
             path=str(self.index_path), settings=Settings(anonymized_telemetry=False)

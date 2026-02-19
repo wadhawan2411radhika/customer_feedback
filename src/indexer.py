@@ -7,23 +7,23 @@ from typing import Any
 import chromadb
 from chromadb.config import Settings
 
-from src.embeddings import OpenAIEmbeddings
+from src.embeddings import LocalEmbeddings
 
 
 class FeedbackIndexer:
-    """Indexes feedback summaries into ChromaDB with embeddings."""
+    """Indexes feedback summaries into ChromaDB with local embeddings."""
 
     def __init__(
         self,
         data_dir: Path,
         index_path: Path = Path(".chroma_db"),
-        embedding_model: str = "text-embedding-3-small",
-        api_key: str | None = None,
+        embedding_model: str = "BAAI/bge-small-en-v1.5",
+        device: str | None = None,
     ):
         self.data_dir = Path(data_dir)
         self.index_path = Path(index_path)
         self.embedding_model_name = embedding_model
-        self.embeddings_client = OpenAIEmbeddings(api_key=api_key, model=embedding_model)
+        self.embeddings_client = LocalEmbeddings(model=embedding_model, device=device)
         self.client = chromadb.PersistentClient(
             path=str(self.index_path), settings=Settings(anonymized_telemetry=False)
         )

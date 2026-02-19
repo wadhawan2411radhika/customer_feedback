@@ -2,7 +2,7 @@
 
 from collections.abc import AsyncGenerator
 
-from src.llm_client import OpenAIClient
+from src.llm_client import GroqClient
 from src.retriever import FeedbackRetriever
 
 
@@ -12,7 +12,7 @@ class RAGPipeline:
     def __init__(
         self,
         retriever: FeedbackRetriever,
-        llm_client: OpenAIClient,
+        llm_client: GroqClient,
     ):
         self.retriever = retriever
         self.llm_client = llm_client
