@@ -1,62 +1,61 @@
-"""OpenAI embeddings client for generating text embeddings."""
+"""Local embeddings client for generating text embeddings using sentence-transformers."""
 
 import asyncio
-import os
+from functools import lru_cache
 
-from openai import AsyncOpenAI
+from sentence_transformers import SentenceTransformer
 
 
-class OpenAIEmbeddings:
-    """Async OpenAI client for generating text embeddings."""
+@lru_cache(maxsize=4)
+def _load_model(model_name: str) -> SentenceTransformer:
+    """Load and cache a SentenceTransformer model (avoids reloading on repeated calls)."""
+    return SentenceTransformer(model_name)
+
+
+class LocalEmbeddings:
+    """Local sentence-transformers client for generating text embeddings.
+
+    Recommended models (all free, no API key required):
+        - "BAAI/bge-small-en-v1.5"  (~130MB, best quality/speed tradeoff) [default]
+        - "all-MiniLM-L6-v2"        (~80MB,  fastest)
+        - "BAAI/bge-large-en-v1.5"  (~1.3GB, best quality, slower)
+        - "nomic-ai/nomic-embed-text-v1" (~270MB, great for long docs)
+
+    Install: pip install sentence-transformers
+    """
 
     def __init__(
         self,
-        api_key: str | None = None,
-        model: str = "text-embedding-3-small",
-        max_concurrent: int = 10,
-        batch_size: int = 2048,
+        model: str = "BAAI/bge-small-en-v1.5",
+        batch_size: int = 64,
+        device: str | None = None,  # None = auto-detect (cuda if available, else cpu)
     ):
-        api_key = api_key or os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            raise ValueError("OPENAI_API_KEY environment variable is required")
-
-        self.client = AsyncOpenAI(api_key=api_key)
-        self.model = model
-        self.semaphore = asyncio.Semaphore(max_concurrent)
+        self.model_name = model
         self.batch_size = batch_size
-
-    async def _embed_batch(self, texts: list[str]) -> list[list[float]]:
-        """Embed a single batch of texts with semaphore control."""
-        async with self.semaphore:
-            response = await self.client.embeddings.create(
-                model=self.model,
-                input=texts,
-            )
-            return [item.embedding for item in response.data]
+        # Load model (cached globally so re-instantiation is cheap)
+        self._model = _load_model(model)
+        if device:
+            self._model = self._model.to(device)
 
     async def embed_texts(self, texts: list[str]) -> list[list[float]]:
-        """Batch embed texts with semaphore-controlled concurrency."""
+        """Embed a list of texts. Runs in a thread pool to avoid blocking the event loop."""
         if not texts:
             return []
 
-        batches = [
-            texts[i:i + self.batch_size]
-            for i in range(0, len(texts), self.batch_size)
-        ]
-
-        tasks = [self._embed_batch(batch) for batch in batches]
-        batch_results = await asyncio.gather(*tasks)
-
-        embeddings = []
-        for batch_result in batch_results:
-            embeddings.extend(batch_result)
-
+        loop = asyncio.get_event_loop()
+        embeddings = await loop.run_in_executor(
+            None,
+            lambda: self._model.encode(
+                texts,
+                batch_size=self.batch_size,
+                show_progress_bar=len(texts) > 100,
+                normalize_embeddings=True,  # cosine similarity works better when normalized
+                convert_to_numpy=True,
+            ).tolist(),
+        )
         return embeddings
 
     async def embed_query(self, query: str) -> list[float]:
         """Embed a single query string."""
-        response = await self.client.embeddings.create(
-            model=self.model,
-            input=[query],
-        )
-        return response.data[0].embedding
+        results = await self.embed_texts([query])
+        return results[0]
