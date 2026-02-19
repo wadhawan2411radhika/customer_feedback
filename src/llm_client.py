@@ -45,18 +45,36 @@ class GroqClient:
         context_parts = []
 
         for i, result in enumerate(search_results, 1):
-            context_parts.append(f"Feedback {i}: {result.content}")
+            # Extract feedback record ID for citations
+            feedback_record_id = result.feedback_summary.get("attributes", {}).get("feedback_record_id", {}).get("string", {}).get("values", ["unknown"])[0]
+            
+            # Get original feedback content for quotes
+            original_content = result.feedback_record.get("attributes", {}).get("content", {}).get("string", {}).get("values", [""])[0]
+            
+            context_parts.append(f"""Feedback {i}:
+Summary: {result.content}
+Original Feedback: "{original_content}"
+Record ID: {feedback_record_id}""")
 
         context = "\n\n".join(context_parts)
 
-        prompt = f"""You are a helpful assistant that answers questions based on user feedback summaries.
+        prompt = f"""You are a helpful assistant that answers questions based on user feedback summaries and original feedback records.
+
+Your task is to provide comprehensive answers with inline quotes from the original feedback. Follow these guidelines:
+
+1. Write a natural summary answer based on the feedback summaries
+2. Include verbatim quotes from the "Original Feedback" content to support your points
+3. Format quotes as block quotes using > and attribute them with — rec_[record_id]
+4. Weave quotes naturally into your response, not as a separate section at the end
+5. Only quote text that directly supports your summary points
+6. Ensure all quotes are exactly verbatim from the original feedback content
 
 Context from user feedback:
 {context}
 
 Question: {query}
 
-Based on the feedback summaries above, provide a comprehensive answer to the question. If the feedback doesn't contain relevant information, say so clearly.
+Based on the feedback above, provide a comprehensive answer with inline quotes from the original feedback records.
 
 Answer:"""
 
