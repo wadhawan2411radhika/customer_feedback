@@ -44,10 +44,6 @@ The problem statement suggests `[rec_abc123]` markers inline in prose. Block quo
 
 Verbatim accuracy and citation correctness are evaluated programmatically (substring match + record ID lookup). An LLM judge could handle fuzzy matches better, but introduces its own errors and adds cost to every evaluation run. For binary factual checks — "is this text present in this record?" — deterministic is strictly better. Coherence is the one dimension that genuinely requires judgement about prose quality, so LLM-as-judge is reserved for that alone (~$0.002/query at eval time, not production time).
 
-### GPT-4o over GPT-4o-mini for synthesis
-
-Both models were benchmarked. GPT-4o-mini achieved 88% verbatim accuracy vs 93% with GPT-4o. The gap comes from quote boundary handling — GPT-4o-mini is more likely to truncate long quotes or stitch adjacent sentences, causing substring mismatches. For a feature where the core value proposition is quote accuracy, the 3× cost premium of GPT-4o is justified. GPT-4o-mini remains viable for the baseline mode where no quoting is required.
-
 ---
 
 ## 4. Enhancing the LLM Context
