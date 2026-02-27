@@ -4,7 +4,7 @@
 
 The existing RAG pipeline returned plain-text summaries with no connection back to original user feedback. The goal was to add **inline verbatim quotes** attributed to their source `feedback_record_id`, while keeping streaming intact and not breaking the existing retrieval architecture.
 
-**Key architectural decision:** Only the prompt layer changed. The retriever, indexer, ChromaDB setup, and streaming pipeline are untouched. This was intentional — the problem was a generation problem, not a retrieval problem.
+**Key architectural decision:** Only the prompt layer changed. The retriever, indexer, ChromaDB setup, and streaming pipeline are untouched. This was intentional — the problem was a generation problem, not a retrieval problem. Adding quotes doesn't require knowing more — it requires using what's already retrieved differently.
 
 ---
 
@@ -22,7 +22,35 @@ The `feedback_record_id` linking summary → raw feedback was already present in
 
 ---
 
-## 3. Enhancing the LLM Context
+## 3. Design Decisions & Trade-offs
+
+### Index summaries, not raw feedback
+
+Retrieval runs against embedded summaries rather than raw feedback text. The alternative — embedding raw feedback directly — would produce noisier retrieval: raw reviews are often short, informal, multilingual, or emotionally charged, which makes them poor semantic targets. Summaries are normalized, English, and topic-dense, making them better anchors for semantic search. The raw text is still used — but only at generation time for quoting, not at retrieval time for ranking.
+
+### Pass both summary + raw to the LLM, not raw only
+
+The enhanced prompt sends both the summary and the raw feedback for each record. An alternative would be to drop summaries entirely and pass only raw text. That was rejected because summaries serve a structural role — the LLM uses them to decide what claims are worth making and how to group them, then reaches into the raw text for verbatim support. Raw-only context produced less coherent, less organized answers in early testing.
+
+### Single-pass generation vs two-pass
+
+A two-pass approach would first generate a prose summary, then run a second LLM call to extract and insert quotes. This is more controllable — each pass has a single, well-defined job — and easier to evaluate independently. However, it doubles latency and cost, and breaks streaming (you can't stream a response that depends on a second call). Single-pass was chosen to preserve streaming and keep cost linear. The trade-off is that prompt instructions carry more weight, and failures are harder to isolate.
+
+### Block quote format vs inline `[record_id]` markers
+
+The problem statement suggests `[rec_abc123]` markers inline in prose. Block quotes after each paragraph were chosen instead. Inline markers require the LLM to track citation-to-claim mapping mid-sentence, which increases the chance of misattribution. Paragraph-then-quotes is a simpler contract: write the claim, then prove it. It also produces cleaner output for a markdown renderer and makes the regex parser unambiguous.
+
+### Programmatic checks for verbatim/citation, LLM only for coherence
+
+Verbatim accuracy and citation correctness are evaluated programmatically (substring match + record ID lookup). An LLM judge could handle fuzzy matches better, but introduces its own errors and adds cost to every evaluation run. For binary factual checks — "is this text present in this record?" — deterministic is strictly better. Coherence is the one dimension that genuinely requires judgement about prose quality, so LLM-as-judge is reserved for that alone (~$0.002/query at eval time, not production time).
+
+### GPT-4o over GPT-4o-mini for synthesis
+
+Both models were benchmarked. GPT-4o-mini achieved 88% verbatim accuracy vs 93% with GPT-4o. The gap comes from quote boundary handling — GPT-4o-mini is more likely to truncate long quotes or stitch adjacent sentences, causing substring mismatches. For a feature where the core value proposition is quote accuracy, the 3× cost premium of GPT-4o is justified. GPT-4o-mini remains viable for the baseline mode where no quoting is required.
+
+---
+
+## 4. Enhancing the LLM Context
 
 The baseline prompt passed only summaries:
 
@@ -40,11 +68,11 @@ summary: <LLM-generated summary>
 verbatim_feedback: <raw user text>
 ```
 
-This separation is deliberate. Labelling the two sources explicitly reduces a common failure mode where the LLM quotes from the summary (which is paraphrased) instead of the raw text (which is verbatim).
+Labelling the two sources explicitly reduces a failure mode where the LLM quotes from the summary (paraphrased) instead of the raw text (verbatim). Without explicit labels, the model conflates the two.
 
 ---
 
-## 4. Prompt Design — Output Format
+## 5. Prompt Design — Output Format
 
 The LLM was instructed to produce a specific structure:
 
@@ -59,16 +87,16 @@ Next paragraph on a different theme.
 > "verbatim quote" — feedback_record_id
 ```
 
-Key prompt decisions and their rationale:
+Key prompt instructions and their rationale:
 
-- **Group related claims** — "Do not write one sentence per record" prevents a list-like answer when multiple records say similar things
+- **Group related claims** — "Do not write one sentence per record" prevents list-like output when multiple records cover the same theme
 - **Quote from `verbatim_feedback` only** — explicitly forbidden from quoting the summary
-- **Omit rather than fabricate** — if no verbatim text supports a claim, skip the quote; this proved critical for preventing hallucinations
-- **One quote per line** — as per requirement and makes the parser's regex unambiguous
+- **Omit rather than fabricate** — if no verbatim text supports a claim, skip the quote; this was the most important instruction for preventing hallucinations
+- **One quote per line** — keeps the regex parser simple and unambiguous
 
 ---
 
-## 5. Cost & Latency Tracking
+## 6. Cost & Latency Tracking
 
 **Why this was non-trivial with streaming:** In a standard (non-streaming) API call, token usage is returned directly in the response. With streaming, usage is only available in the final chunk via `stream_options: {"include_usage": True}` — it arrives after all content has been yielded. The tracker is designed around this:
 
@@ -89,20 +117,18 @@ TTFT is captured on first content chunk; total time and token counts are capture
 
 | Metric | Baseline | Enhanced | Delta |
 |---|---|---|---|
-| Avg input tokens | ~201 | ~852 | +323% |
-| Avg output tokens | ~141 | ~404 | +186% |
-| Avg total tokens | ~342 | ~1,256 | +267% |
-| Avg cost/query | ~$0.0019 | ~$0.0055 | **~3× more** |
-| Avg TTFT | ~38ms | ~31ms | Similar |
-| Avg total time | ~2.5s | ~5.5s | +2× slower |
+| Avg total tokens | ~337 | ~1,177 | +249% |
+| Avg cost/query | ~$0.0019 | ~$0.0059 | **~3.2× more** |
+| Avg TTFT | ~37ms | ~82ms | +2.2× |
+| Avg total time | ~2.2s | ~5.7s | +2.5× slower |
 
-**Why input tokens dominate:** Raw feedback content adds ~650 tokens per query on average compared to summary-only context. This is the primary cost driver. Output tokens also increase because quoted answers are longer than plain summaries.
+**Why input tokens dominate:** Raw feedback content adds ~650 tokens per query on average compared to summary-only context. This is the primary cost driver — output tokens also grow because quoted answers are longer, but input is the bigger lever.
 
-**TTFT is similar or better** in enhanced mode because the LLM starts generating prose immediately — the user sees the first words of the answer at roughly the same time. The extra time is in total response length, not in getting started.
+**TTFT increases in enhanced mode** because the longer prompt takes more time to prefill before the first token is generated. Unlike baseline where the model responds almost immediately, the user perceives a slightly longer wait before the answer starts appearing.
 
 ---
 
-## 6. Evaluation
+## 7. Evaluation
 
 Three dimensions were evaluated across 6 product-manager-style queries:
 
@@ -116,12 +142,10 @@ quote.text.lower() in source_content.lower()
 No LLM cost. Fast and deterministic.
 
 ### Citation Correctness — Programmatic
-Checks whether the `feedback_record_id` in the quote actually maps to the record the quote came from. If a quote is verbatim but attributed to the wrong record, this catches it.
-
-Both verbatim and citation are programmatic — they run in milliseconds and add zero API cost.
+Checks whether the `feedback_record_id` in the quote maps to the record the quote came from. A quote can be verbatim but wrongly attributed — this catches that.
 
 ### Answer Coherence — LLM-as-Judge
-Checks whether quotes are naturally woven into the prose or dumped in as a disconnected list. Rated 1–5 by GPT-4o with a structured prompt:
+Checks whether quotes are naturally woven into prose or dumped in as a disconnected list. Rated 1–5 by GPT-4o:
 
 ```
 5 — Every quote directly supports the claim before it; prose flows naturally
@@ -129,26 +153,26 @@ Checks whether quotes are naturally woven into the prose or dumped in as a disco
 1 — Quotes dumped in with no connection to prose
 ```
 
-**Trade-off:** This adds one API call per query at evaluation time (~$0.002 with GPT-4o). Justified for offline benchmarking; would be removed in production.
+**Trade-off:** One additional API call per query at evaluation time. Justified for offline benchmarking; removed in production.
 
-### Results
+### Results (GPT-4o, 6 queries)
 
 | Query | Verbatim | Citation | Hallucination | Coherence |
 |---|---|---|---|---|
-| App performance complaints | 87.5% | 87.5% | 12.5% | 5/5 |
-| What users love about Canva | 100% | 100% | 0% | 2/5 |
+| App performance complaints | 100% | 100% | 0% | 5/5 |
+| What users love about Canva | 100% | 100% | 0% | 3/5 |
 | Usability issues | 80% | 80% | 20% | 5/5 |
-| Feature requests | 80% | 80% | 20% | 5/5 |
+| Feature requests | 100% | 100% | 0% | 4/5 |
 | Pricing & paid features | 100% | 100% | 0% | 5/5 |
 | Recent update sentiment | 80% | 80% | 20% | 4/5 |
-| **Average** | **88%** | **88%** | **12%** | **4.3/5** |
+| **Average** | **93%** | **93%** | **7%** | **4.3/5** |
 
 ---
 
-## 7. Current Challenges
+## 8. Current Challenges
 
 ### Escape Character Problem (Evaluator Bug)
-Every flagged hallucination traces to one record (`f8c057fb`) whose raw content contains `"features"` with escaped double quotes in the JSON. The LLM correctly copies the text but uses single quotes — `'features'` — when reproducing it inside a markdown block quote (to avoid breaking the quote boundary). The substring check then fails because `'features'` ≠ `"features"`.
+Every flagged hallucination traces to one record (`f8c057fb`) whose raw content contains `"features"` with escaped double quotes in JSON. The LLM correctly copies the text but substitutes single quotes — `'features'` — inside the markdown block quote to avoid breaking the quote boundary. The substring check fails because `'features'` ≠ `"features"`.
 
 This is an **evaluator bug, not a model fabrication.** The true hallucination rate after quote normalization is **0%**. Fix: normalize both sides before comparison.
 
@@ -158,22 +182,20 @@ source_norm = content.replace('"', '"').lower()
 ```
 
 ### Verbatim Matching Edge Cases
-Strict substring matching also breaks on:
-- LLM truncating long quotes with `...`
-- Minor whitespace differences in source data
-- Multi-sentence quotes where the LLM slightly adjusts the join
+Strict substring matching also breaks on LLM truncating long quotes with `...`, minor whitespace differences, or multi-sentence quotes where the LLM slightly adjusts the join. These are near-verbatim reproductions a human would accept — the current evaluator penalises them the same as fabrications.
 
-These are not hallucinations — they are near-verbatim reproductions that a human would accept. The current evaluator penalises them equally.
+### Cost & Latency
+At ~3.2× cost and ~2.5× latency, enhanced mode is meaningful overhead for high-volume use. Cost scales linearly with `top_k` — increasing from 5 to 10 retrieved records roughly doubles input tokens. TTFT at ~82ms is acceptable for an async product dashboard but would be noticeable in a synchronous UI.
 
-### Cost & Latency Trade-off
-At ~3× cost and ~2× latency per query, enhanced mode is meaningfully more expensive. For a high-volume product (e.g., real-time dashboard queries), this matters. The cost increase is linear in the number of retrieved records — `top_k=5` adds ~800 input tokens; `top_k=10` would add ~1,600.
+### Coherence Degrades on Sparse Feedback
+The "users love Canva" query retrieved five one-word reviews ("great", "superb", "i love it"). With nothing substantive to quote, the LLM produces a list of single-word block quotes — coherence drops to 3/5. This is a retrieval quality problem, not a prompt failure.
 
 ---
 
-## 8. Future Work
+## 9. Future Work
 
-**Fuzzy verbatim checker** — Replace strict substring with `difflib.SequenceMatcher` (ratio > 0.92). Catches legitimate near-verbatim quotes (truncated sentences, whitespace) without inflating hallucination rate. Cheaper and more reliable than an LLM-based checker; an LLM judge for verbatim accuracy would add cost and introduce its own errors.
+**Fuzzy verbatim checker** — Replace strict substring with `difflib.SequenceMatcher` (ratio > 0.92). Catches near-verbatim quotes without inflating hallucination rate. Cheaper and more reliable than an LLM judge for this factual check.
 
-**Minimum quote length guard** — The coherence 2/5 on "what users love" is a data sparsity problem: five one-word reviews ("great", "superb", "i love it") give the LLM nothing meaningful to quote. Adding a prompt instruction — *"If verbatim text is fewer than 8 words and adds no context beyond the claim, skip the quote"* — prevents the degraded list-like output without changing the retrieval stack.
+**Minimum quote length guard** — Add prompt instruction: *"If verbatim text is fewer than 8 words and adds no context beyond the claim, skip the quote."* Fixes coherence collapse on one-word reviews without touching the retrieval stack.
 
-**Hybrid context window** — Pass full raw feedback content for the top-2 most relevant records; summaries only for the rest. Estimated ~40% input token reduction with minimal quality impact, bringing cost from ~3× to ~1.8× baseline.
+**Hybrid context window** — Pass full raw feedback for the top-2 most relevant records; summaries only for the rest. Estimated ~40% input token reduction with minimal quality impact, bringing cost from ~3.2× to ~2× baseline.

@@ -16,6 +16,15 @@ Users report the app freezes during basic tasks.
 > "The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting." — f8c057fb-0d61-5dab-a809-3ae0add2f4e5
 ```
 
+## Two Modes
+
+| Mode | Context passed to LLM | Output |
+|---|---|---|
+| `baseline` | Summaries only | Plain prose answer |
+| `enhanced` | Summaries + raw verbatim feedback | Prose with inline block quotes cited by `feedback_record_id` |
+
+The retriever, indexer, and streaming pipeline are identical in both modes — only the prompt changes.
+
 ## Setup
 
 ```bash
@@ -35,16 +44,16 @@ unzip data.zip
 # Build the vector index
 uv run python main.py index --data-dir data --index-path .chroma_db
 
-# Query (baseline — summaries only)
+# Query — baseline (summaries only)
 uv run python main.py query "What are the most common complaints?" --model gpt-4o-mini
 
-# Query (enhanced — with inline quotes)
+# Query — enhanced (with inline quotes)
 uv run python main.py query "What are the most common complaints?" --model gpt-4o-mini --mode enhanced
 ```
 
 ## Benchmark
 
-Runs all 6 queries in both modes and evaluates quality, cost, and latency:
+Runs all 6 queries in both modes and evaluates quality, cost, and latency. Defaults to GPT-4o:
 
 ```bash
 uv run python benchmark.py
@@ -54,6 +63,42 @@ uv run python benchmark.py
 Skip the coherence LLM call (faster, no extra cost):
 ```bash
 uv run python benchmark.py --no-coherence
+```
+
+### Benchmark Output Format
+
+Each entry in `benchmark_results.json` represents one query in one mode:
+
+```json
+{
+  "query": "What are the most common complaints about app performance?",
+  "version": "baseline | enhanced",
+  "output": "<full LLM answer text>",
+  "input_tokens": 239,
+  "output_tokens": 124,
+  "total_tokens": 363,
+  "cost_usd": 0.001838,
+  "ttft_s": 0.027,
+  "total_time_s": 1.763,
+
+  // enhanced mode only — null for baseline
+  "num_quotes": 5,
+  "verbatim_rate": 1.0,
+  "citation_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "coherence_score": 5.0,
+  "coherence_reasoning": "<LLM judge explanation>",
+  "quotes_detail": [
+    {
+      "extracted_quote": "<text as written by LLM>",
+      "feedback_record_id": "<uuid cited by LLM>",
+      "actual_feedback_content": "<ground truth raw feedback>",
+      "verbatim_match": true,
+      "citation_correct": true,
+      "hallucinated": false
+    }
+  ]
+}
 ```
 
 ## Evaluation Dimensions
@@ -68,12 +113,14 @@ uv run python benchmark.py --no-coherence
 
 | Metric | Baseline | Enhanced |
 |---|---|---|
-| Avg tokens/query | ~342 | ~1,256 |
-| Avg cost/query | ~$0.0019 | ~$0.0055 |
-| Avg TTFT | ~38ms | ~31ms |
-| Avg total time | ~2.5s | ~5.5s |
-| Verbatim accuracy | — | 88% |
+| Avg tokens/query | ~337 | ~1,177 |
+| Avg cost/query | ~$0.0019 | ~$0.0059 |
+| Avg TTFT | ~37ms | ~82ms |
+| Avg total time | ~2.2s | ~5.7s |
+| Verbatim accuracy | — | 93% |
 | Coherence | — | 4.3 / 5 |
+
+Model: GPT-4o. Enhanced mode is ~3.2× more expensive and ~2.5× slower due to raw feedback content added to the prompt (~650 extra input tokens per query).
 
 ## Project Structure
 
@@ -90,7 +137,7 @@ uv run python benchmark.py --no-coherence
 │   └── cost_tracker.py      # Token count + latency tracking
 ├── outputs/
 │   ├── benchmark_results.json
-│   └── APPROACH.md           # Approach & design decisions
+│   └── APPROACH.md          # Approach & design decisions
 └── tests/                   # Unit tests (pytest)
 ```
 
