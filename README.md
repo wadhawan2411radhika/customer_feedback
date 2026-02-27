@@ -90,7 +90,7 @@ uv run python benchmark.py --no-coherence
 │   └── cost_tracker.py      # Token count + latency tracking
 ├── outputs/
 │   ├── benchmark_results.json
-│   └── WRITEUP.md           # Approach & design decisions
+│   └── APPROACH.md           # Approach & design decisions
 └── tests/                   # Unit tests (pytest)
 ```
 
