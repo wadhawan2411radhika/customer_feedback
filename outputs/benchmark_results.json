@@ -1,0 +1,432 @@
+[
+  {
+    "query": "What are the most common complaints about app performance?",
+    "version": "baseline",
+    "output": "The most common complaints about app performance, based on the feedback summaries, are that Canva is experiencing significant issues with freezing and slowness. Users report that the app freezes during simple tasks and has become very slow over time. These performance issues seem to persist even after attempts to fix them, such as reinstalling the app. Users express frustration that these problems have been ongoing for months and that the app has become less convenient and complicated to use, particularly since recent updates. Overall, the dissatisfaction primarily revolves around the app's lack of fluidity and increased processing time, which negatively impacts the user experience.",
+    "input_tokens": 239,
+    "output_tokens": 120,
+    "total_tokens": 359,
+    "cost_usd": 0.001798,
+    "ttft_s": 0.013,
+    "total_time_s": 2.977,
+    "num_quotes": null,
+    "verbatim_rate": null,
+    "citation_rate": null,
+    "hallucination_rate": null,
+    "coherence_score": null,
+    "coherence_reasoning": null,
+    "quotes_detail": null
+  },
+  {
+    "query": "What are the most common complaints about app performance?",
+    "version": "enhanced",
+    "output": "Users frequently complain about Canva's app performance issues, including freezing and slowness, which has significantly degraded their experience.\n\nThe most common complaint is that the app freezes during simple tasks, which frustrates users.\n\n> \"The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting.\" \u2014 f8c057fb-0d61-5dab-a809-3ae0add2f4e5  \n> \"now it just freezes and isn't worth it simce update\" \u2014 02ae636c-2578-50ae-a151-51155dfd2dc8  \n\nAnother prevalent issue is the app's slowness, which has worsened over time, leading to user dissatisfaction.\n\n> \"Canva is sooo slow very slow I updated it but it just got worse please fix this\" \u2014 e6c269e3-37ed-585b-994d-af0bc339491d  \n> \"for months the app has been super slow and freezes\" \u2014 e057891b-7790-5d76-8d00-936fb6f24ba2  \n\nUsers also mention that the app's performance has declined compared to previous versions, making it more inconvenient to use.\n\n> \"it wasn't like this a year ago, it was much more convenient and simpler\" \u2014 39ac5049-44aa-5ab6-bf8d-0ca37d630428  \n\nOverall, these performance issues, particularly freezing and slowness, have led to significant user frustration and dissatisfaction.",
+    "input_tokens": 1143,
+    "output_tokens": 318,
+    "total_tokens": 1461,
+    "cost_usd": 0.006037,
+    "ttft_s": 0.043,
+    "total_time_s": 2.793,
+    "num_quotes": 5,
+    "verbatim_rate": 1.0,
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "coherence_score": 5.0,
+    "coherence_reasoning": "The quotes are seamlessly integrated into the prose, directly supporting the claims made about app performance issues such as freezing, slowness, and decline over time. Each quote is relevant and naturally follows the statements preceding them, enhancing the coherence of the answer.",
+    "quotes_detail": [
+      {
+        "extracted_quote": "The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting.",
+        "feedback_record_id": "f8c057fb-0d61-5dab-a809-3ae0add2f4e5",
+        "actual_feedback_content": "The app WAS much better, today it is terrible, which makes me angry! How can you IMPROVE something that was good before??? And yes, I use the PRO version, that is, I have paid to get frustrated... The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of \"features\" that is impossible to use!!!",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "now it just freezes and isn't worth it simce update",
+        "feedback_record_id": "02ae636c-2578-50ae-a151-51155dfd2dc8",
+        "actual_feedback_content": "used to be a great app for editing, now it just freezes and isn't worth it simce update",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "Canva is sooo slow very slow I updated it but it just got worse please fix this",
+        "feedback_record_id": "e6c269e3-37ed-585b-994d-af0bc339491d",
+        "actual_feedback_content": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "for months the app has been super slow and freezes",
+        "feedback_record_id": "e057891b-7790-5d76-8d00-936fb6f24ba2",
+        "actual_feedback_content": "I stopped paying. I don't know what's happening, but for months the app has been super slow and freezes. I uninstalled and reinstalled, and it doesn't get fixed. It's a waste of time.",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "it wasn't like this a year ago, it was much more convenient and simpler",
+        "feedback_record_id": "39ac5049-44aa-5ab6-bf8d-0ca37d630428",
+        "actual_feedback_content": "It's terribly inconvenient to work, everything needs to be adjusted to seconds, it wasn't like this a year ago, it was much more convenient and simpler, the phone has started to freeze terribly. One day for one clip is impossible, I used to manage faster. It has frayed my nerves...",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "query": "Summarize what users love most about Canva",
+    "version": "baseline",
+    "output": "The feedback summaries provided indicate that users have a very positive impression of Canva. They describe Canva using terms such as \"great,\" \"superb,\" and \"excellent.\" However, the feedback does not specify particular features or aspects of Canva that users love the most. Therefore, based on the given feedback, it is clear that users have a high overall satisfaction with Canva, but the specific reasons for this satisfaction are not detailed in the feedback provided.",
+    "input_tokens": 135,
+    "output_tokens": 88,
+    "total_tokens": 223,
+    "cost_usd": 0.001217,
+    "ttft_s": 0.071,
+    "total_time_s": 1.879,
+    "num_quotes": null,
+    "verbatim_rate": null,
+    "citation_rate": null,
+    "hallucination_rate": null,
+    "coherence_score": null,
+    "coherence_reasoning": null,
+    "quotes_detail": null
+  },
+  {
+    "query": "Summarize what users love most about Canva",
+    "version": "enhanced",
+    "output": "Users have expressed strong positive feelings about Canva, often highlighting their love for the platform.\n\nThe first aspect users love about Canva is simply how much they enjoy using it.\n> \"i love it\" \u2014 56c4279a-43a1-5432-9897-914c829030f3\n\nUsers frequently describe Canva as great.\n> \"Great\" \u2014 fcdd03c0-9616-5458-868e-1cc8f2ad7df5\n> \"great\" \u2014 2c899fce-4b49-5638-8205-e99e09183aed\n\nCanva is also described as superb by users.\n> \"superb Superb\" \u2014 6359ecd0-dc91-5ac6-8268-01c7115e4b0e\n\nAdditionally, users find Canva excellent.\n> \"excellent\" \u2014 7272a26c-912b-54d7-87e2-9fa3c2c76275\n\nOverall, users consistently express positive sentiments towards Canva, describing it with terms such as love, great, superb, and excellent.",
+    "input_tokens": 792,
+    "output_tokens": 236,
+    "total_tokens": 1028,
+    "cost_usd": 0.00434,
+    "ttft_s": 0.109,
+    "total_time_s": 4.306,
+    "num_quotes": 5,
+    "verbatim_rate": 1.0,
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "coherence_score": 2.0,
+    "coherence_reasoning": "The quotes are mostly disconnected from the claims, with each quote being presented in a list-like manner rather than being integrated into the prose. This makes the answer hard to follow and disrupts the natural flow of the text.",
+    "quotes_detail": [
+      {
+        "extracted_quote": "i love it",
+        "feedback_record_id": "56c4279a-43a1-5432-9897-914c829030f3",
+        "actual_feedback_content": "i love it",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "Great",
+        "feedback_record_id": "fcdd03c0-9616-5458-868e-1cc8f2ad7df5",
+        "actual_feedback_content": "Great",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "great",
+        "feedback_record_id": "2c899fce-4b49-5638-8205-e99e09183aed",
+        "actual_feedback_content": "great",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "superb Superb",
+        "feedback_record_id": "6359ecd0-dc91-5ac6-8268-01c7115e4b0e",
+        "actual_feedback_content": "superb Superb",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "excellent",
+        "feedback_record_id": "7272a26c-912b-54d7-87e2-9fa3c2c76275",
+        "actual_feedback_content": "excellent",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "query": "What usability issues are users facing?",
+    "version": "baseline",
+    "output": "Based on the feedback summaries provided, users are facing several usability issues with Canva:\n\n1. **Performance Issues**: Users report that Canva's performance is poor, with the app freezing during simple tasks. This is highlighted in Feedback 1 and Feedback 3, where users mention freezing and slowness as major issues.\n\n2. **Speed and Responsiveness**: Feedback 4 specifically mentions that Canva is very slow, which affects the overall user experience despite the app being helpful otherwise.\n\n3. **Complexity**: Feedback 3 indicates that users find Canva inconvenient and complicated, particularly when using it on a phone, which results in longer times to create clips and increased frustration.\n\nOverall, the main usability issues revolve around performance (freezing and slowness) and complexity, particularly on mobile devices. Users suggest improvements in fluidity and responsiveness to enhance the overall experience.",
+    "input_tokens": 204,
+    "output_tokens": 175,
+    "total_tokens": 379,
+    "cost_usd": 0.00226,
+    "ttft_s": 0.014,
+    "total_time_s": 2.762,
+    "num_quotes": null,
+    "verbatim_rate": null,
+    "citation_rate": null,
+    "hallucination_rate": null,
+    "coherence_score": null,
+    "coherence_reasoning": null,
+    "quotes_detail": null
+  },
+  {
+    "query": "What usability issues are users facing?",
+    "version": "enhanced",
+    "output": "Users are facing several usability issues with Canva, primarily related to performance and feature availability.\n\nMany users report significant performance issues, including freezing and slow operation, which hinder usability and cause frustration.  \n> \"The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting.\" \u2014 f8c057fb-0d61-5dab-a809-3ae0add2f4e5  \n> \"the phone has started to freeze terribly. One day for one clip is impossible, I used to manage faster. It has frayed my nerves...\" \u2014 39ac5049-44aa-5ab6-bf8d-0ca37d630428  \n> \"Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow\" \u2014 e6c269e3-37ed-585b-994d-af0bc339491d  \n\nSome users are also frustrated with the availability of features, as they feel certain functions are missing or not yet released for them.  \n> \"<PERSON_1> is great but there are many things I can create more <PERSON_2> hasn't released it for me yet\" \u2014 6fda1676-37ad-5789-aa11-9302bb68fa05  \n\nOverall, these issues highlight the need for improvements in app performance and feature delivery to enhance user satisfaction.",
+    "input_tokens": 1080,
+    "output_tokens": 293,
+    "total_tokens": 1373,
+    "cost_usd": 0.00563,
+    "ttft_s": 0.11,
+    "total_time_s": 3.842,
+    "num_quotes": 4,
+    "verbatim_rate": 1.0,
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "coherence_score": 4.0,
+    "coherence_reasoning": "The quotes are generally well-integrated and support the claims about performance issues and feature availability, though there is minor awkwardness in the transition to the feature availability section.",
+    "quotes_detail": [
+      {
+        "extracted_quote": "The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting.",
+        "feedback_record_id": "f8c057fb-0d61-5dab-a809-3ae0add2f4e5",
+        "actual_feedback_content": "The app WAS much better, today it is terrible, which makes me angry! How can you IMPROVE something that was good before??? And yes, I use the PRO version, that is, I have paid to get frustrated... The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of \"features\" that is impossible to use!!!",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "the phone has started to freeze terribly. One day for one clip is impossible, I used to manage faster. It has frayed my nerves...",
+        "feedback_record_id": "39ac5049-44aa-5ab6-bf8d-0ca37d630428",
+        "actual_feedback_content": "It's terribly inconvenient to work, everything needs to be adjusted to seconds, it wasn't like this a year ago, it was much more convenient and simpler, the phone has started to freeze terribly. One day for one clip is impossible, I used to manage faster. It has frayed my nerves...",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+        "feedback_record_id": "e6c269e3-37ed-585b-994d-af0bc339491d",
+        "actual_feedback_content": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "<PERSON_1> is great but there are many things I can create more <PERSON_2> hasn't released it for me yet",
+        "feedback_record_id": "6fda1676-37ad-5789-aa11-9302bb68fa05",
+        "actual_feedback_content": "<PERSON_1> is great but there are many things I can create more <PERSON_2> hasn't released it for me yet",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "query": "What feature requests or suggestions are users making?",
+    "version": "baseline",
+    "output": "Based on the feedback summaries, users are making the following feature requests and suggestions for Canva:\n\n1. **Availability of Features**: Users are frustrated that some features are not available and suggest that more features should be accessible, particularly those that enhance functionality.\n\n2. **More Free Features with AI**: There's a request for more AI-powered features to be available for free, indicating a demand for increased functionality without additional costs.\n\n3. **Performance Improvements**: Users are experiencing performance issues, such as freezing and slow operation, and suggest that Canva should prioritize improving the fluidity and performance of the app. This includes reevaluating the UX design to ensure smoother and more efficient user interactions.\n\n4. **Pricing and Accessibility**: Users suggest removing or reducing the VIP payment requirement to make Canva more convenient and attractive to a broader user base, implying a desire for more features to be accessible without a paywall.",
+    "input_tokens": 206,
+    "output_tokens": 181,
+    "total_tokens": 387,
+    "cost_usd": 0.002325,
+    "ttft_s": 0.078,
+    "total_time_s": 3.156,
+    "num_quotes": null,
+    "verbatim_rate": null,
+    "citation_rate": null,
+    "hallucination_rate": null,
+    "coherence_score": null,
+    "coherence_reasoning": null,
+    "quotes_detail": null
+  },
+  {
+    "query": "What feature requests or suggestions are users making?",
+    "version": "enhanced",
+    "output": "Users are making several feature requests and suggestions based on the feedback provided.\n\nOne user is requesting more free features with Canva's AI, suggesting a desire for increased accessibility to AI tools without additional costs.\n> \"give us more free with canvas AI\" \u2014 a30b7fc2-f338-5b25-9566-2ecdb97df00f\n\nAnother user suggests removing the VIP payment requirement to make Canva more convenient and attract more users, indicating that they find the current paywall limiting.\n> \"limits many things, and forces to pay for VIP, if they removed that, they would have many more users and much more convenience\" \u2014 24048f31-0929-5cc0-a115-1fffe127d610\n\nAdditionally, users have provided feedback about performance issues, such as freezing and slowness, which indirectly implies a request for improved app performance and usability. However, these are not direct feature requests but rather suggestions for improvement.\n> \"The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting.\" \u2014 f8c057fb-0d61-5dab-a809-3ae0add2f4e5\n> \"Canva is sooo slow very slow I updated it but it just got worse please fix this\" \u2014 e6c269e3-37ed-585b-994d-af0bc339491d\n\nIn summary, users are requesting more free AI features, the removal of VIP payment barriers, and improvements in app performance.",
+    "input_tokens": 1050,
+    "output_tokens": 313,
+    "total_tokens": 1363,
+    "cost_usd": 0.005755,
+    "ttft_s": 0.058,
+    "total_time_s": 6.089,
+    "num_quotes": 4,
+    "verbatim_rate": 1.0,
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "coherence_score": 5.0,
+    "coherence_reasoning": "The quotes are seamlessly integrated into the prose, each directly supporting the claims made before them. The flow of the answer is natural, with each quote providing clear evidence for the feature requests and suggestions discussed.",
+    "quotes_detail": [
+      {
+        "extracted_quote": "give us more free with canvas AI",
+        "feedback_record_id": "a30b7fc2-f338-5b25-9566-2ecdb97df00f",
+        "actual_feedback_content": "give us more free with canvas AI",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "limits many things, and forces to pay for VIP, if they removed that, they would have many more users and much more convenience",
+        "feedback_record_id": "24048f31-0929-5cc0-a115-1fffe127d610",
+        "actual_feedback_content": "limits many things, and forces to pay for VIP, if they removed that, they would have many more users and much more convenience",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting.",
+        "feedback_record_id": "f8c057fb-0d61-5dab-a809-3ae0add2f4e5",
+        "actual_feedback_content": "The app WAS much better, today it is terrible, which makes me angry! How can you IMPROVE something that was good before??? And yes, I use the PRO version, that is, I have paid to get frustrated... The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of \"features\" that is impossible to use!!!",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "Canva is sooo slow very slow I updated it but it just got worse please fix this",
+        "feedback_record_id": "e6c269e3-37ed-585b-994d-af0bc339491d",
+        "actual_feedback_content": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "query": "How do users feel about Canva's pricing and paid features?",
+    "version": "baseline",
+    "output": "Based on the feedback summaries, users generally have a positive perception of Canva's pricing and paid features. They find Canva to be a good and suitable tool for design purposes, appreciating the availability of both free and paid options. Some users acknowledge that while some features require payment, there are still many free options available, which adds to its value. One user mentioned that Canva's price is reasonable given its usefulness. However, another user expressed difficulty in paying for the monthly subscription, indicating that the cost might be a concern for some. Overall, while there is appreciation for the added value provided by a subscription, pricing can be a challenge for certain users.",
+    "input_tokens": 206,
+    "output_tokens": 129,
+    "total_tokens": 335,
+    "cost_usd": 0.001805,
+    "ttft_s": 0.04,
+    "total_time_s": 1.968,
+    "num_quotes": null,
+    "verbatim_rate": null,
+    "citation_rate": null,
+    "hallucination_rate": null,
+    "coherence_score": null,
+    "coherence_reasoning": null,
+    "quotes_detail": null
+  },
+  {
+    "query": "How do users feel about Canva's pricing and paid features?",
+    "version": "enhanced",
+    "output": "Users have mixed feelings about Canva's pricing and paid features. Some users find Canva's pricing reasonable, considering its usefulness.\n\n> \"Excellent, and really its price is not high for how useful it is \ud83d\udc4c\ud83c\udffd\" \u2014 bd8767e8-1eb5-5a1f-b075-fcfe28fbe692\n\nOthers appreciate the additional features and better designs available with a subscription, although they note that some features require payment.\n\n> \"Really convenient and really helpful, even though when you pay the subscription it gives you lot of options and better designes.\" \u2014 8e5551d5-9d91-57df-9832-ba06717f4175\n\nHowever, some users mention difficulty in affording the monthly subscription.\n\n> \"I am currently finding hard to pay for my monthly subscription.\" \u2014 7d6730c5-8626-5004-bc03-c0d409496a60\n\nAdditionally, there is feedback acknowledging that while some features are paid, there are still many free options available.\n\n> \"very good, suitable for designs. anyway it's good, the only downside is that some are paid. but it's okay, there are still many free ones.\" \u2014 f1adb92e-1ed2-59fc-8604-48be95f11635\n\nOverall, users appreciate Canva's functionality and design capabilities but have varied opinions on the cost and accessibility of its paid features.",
+    "input_tokens": 948,
+    "output_tokens": 297,
+    "total_tokens": 1245,
+    "cost_usd": 0.00534,
+    "ttft_s": 0.059,
+    "total_time_s": 3.137,
+    "num_quotes": 4,
+    "verbatim_rate": 1.0,
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "coherence_score": 5.0,
+    "coherence_reasoning": "The quotes are well-integrated into the prose, each directly supporting the claims made before them. The answer flows naturally, with each quote providing clear evidence for the points discussed.",
+    "quotes_detail": [
+      {
+        "extracted_quote": "Excellent, and really its price is not high for how useful it is \ud83d\udc4c\ud83c\udffd",
+        "feedback_record_id": "bd8767e8-1eb5-5a1f-b075-fcfe28fbe692",
+        "actual_feedback_content": "Excellent, and really its price is not high for how useful it is \ud83d\udc4c\ud83c\udffd",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "Really convenient and really helpful, even though when you pay the subscription it gives you lot of options and better designes.",
+        "feedback_record_id": "8e5551d5-9d91-57df-9832-ba06717f4175",
+        "actual_feedback_content": "Really convenient and really helpful, even though when you pay the subscription it gives you lot of options and better designes.",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "I am currently finding hard to pay for my monthly subscription.",
+        "feedback_record_id": "7d6730c5-8626-5004-bc03-c0d409496a60",
+        "actual_feedback_content": "Great and very easy to use. I am currently finding hard to pay for my monthly subscription.",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "very good, suitable for designs. anyway it's good, the only downside is that some are paid. but it's okay, there are still many free ones.",
+        "feedback_record_id": "f1adb92e-1ed2-59fc-8604-48be95f11635",
+        "actual_feedback_content": "very good, suitable for designs. anyway it's good, the only downside is that some are paid. but it's okay, there are still many free ones.",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "query": "What are users saying about the recent update?",
+    "version": "baseline",
+    "output": "Users have mixed opinions about the recent update to Canva. Some users are dissatisfied, reporting issues such as the app freezing and becoming slow, which has negatively affected their experience. These users feel that the app's performance has declined since the update, and they suggest that Canva should focus on improving its user experience design and ensuring smooth performance rather than adding new features. On the other hand, some users are satisfied with Canva, appreciating that it continually improves and remains helpful for completing tasks, although they express frustration that some features they desire are not yet available. Overall, while some users see improvements, others are experiencing significant performance issues following the update.",
+    "input_tokens": 222,
+    "output_tokens": 127,
+    "total_tokens": 349,
+    "cost_usd": 0.001825,
+    "ttft_s": 0.013,
+    "total_time_s": 2.413,
+    "num_quotes": null,
+    "verbatim_rate": null,
+    "citation_rate": null,
+    "hallucination_rate": null,
+    "coherence_score": null,
+    "coherence_reasoning": null,
+    "quotes_detail": null
+  },
+  {
+    "query": "What are users saying about the recent update?",
+    "version": "enhanced",
+    "output": "Users have mixed feelings about the recent update to Canva.\n\nSome users are dissatisfied, reporting that the app now frequently freezes and has become less usable since the update.\n> \"used to be a great app for editing, now it just freezes and isn't worth it simce update\" \u2014 02ae636c-2578-50ae-a151-51155dfd2dc8\n\nThere are also complaints about the app's slow performance, with users expressing frustration despite liking the app overall.\n> \"Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow\" \u2014 e6c269e3-37ed-585b-994d-af0bc339491d\n\nAdditionally, some users mention that the app's performance is terrible and suggest that the focus should be on improving fluidity rather than adding features.\n> \"The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of 'features' that is impossible to use!!!\" \u2014 f8c057fb-0d61-5dab-a809-3ae0add2f4e5\n\nHowever, another user expresses satisfaction with Canva, noting continuous improvements that aid in task completion.\n> \"Every time it gets better and helps me a lot to complete my tasks. Thank you ...\ud83d\ude4f\ud83d\ude0a\" \u2014 ab914e93-1391-5ac3-938c-96ccf599394f",
+    "input_tokens": 1071,
+    "output_tokens": 345,
+    "total_tokens": 1416,
+    "cost_usd": 0.006127,
+    "ttft_s": 0.038,
+    "total_time_s": 3.856,
+    "num_quotes": 4,
+    "verbatim_rate": 0.75,
+    "citation_rate": 0.75,
+    "hallucination_rate": 0.25,
+    "coherence_score": 5.0,
+    "coherence_reasoning": "The quotes are seamlessly integrated into the prose, with each one directly supporting the claims made in the preceding sentences. The flow of the text is natural, and the quotes effectively illustrate the mixed user feedback on the update.",
+    "quotes_detail": [
+      {
+        "extracted_quote": "used to be a great app for editing, now it just freezes and isn't worth it simce update",
+        "feedback_record_id": "02ae636c-2578-50ae-a151-51155dfd2dc8",
+        "actual_feedback_content": "used to be a great app for editing, now it just freezes and isn't worth it simce update",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+        "feedback_record_id": "e6c269e3-37ed-585b-994d-af0bc339491d",
+        "actual_feedback_content": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      },
+      {
+        "extracted_quote": "The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of 'features' that is impossible to use!!!",
+        "feedback_record_id": "f8c057fb-0d61-5dab-a809-3ae0add2f4e5",
+        "actual_feedback_content": "The app WAS much better, today it is terrible, which makes me angry! How can you IMPROVE something that was good before??? And yes, I use the PRO version, that is, I have paid to get frustrated... The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of \"features\" that is impossible to use!!!",
+        "verbatim_match": false,
+        "citation_correct": false,
+        "hallucinated": true
+      },
+      {
+        "extracted_quote": "Every time it gets better and helps me a lot to complete my tasks. Thank you ...\ud83d\ude4f\ud83d\ude0a",
+        "feedback_record_id": "ab914e93-1391-5ac3-938c-96ccf599394f",
+        "actual_feedback_content": "Every time it gets better and helps me a lot to complete my tasks. Thank you ...\ud83d\ude4f\ud83d\ude0a",
+        "verbatim_match": true,
+        "citation_correct": true,
+        "hallucinated": false
+      }
+    ]
+  }
+]

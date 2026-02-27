@@ -3,10 +3,11 @@
 import json
 import os
 from collections.abc import AsyncGenerator
+import time
 from typing import Any
 
 from openai import AsyncOpenAI
-
+from src.cost_tracker import CostRecord
 from src.models import SearchResult
 
 
@@ -27,29 +28,29 @@ class OpenAIClient:
         self.model = model
         self.temperature = temperature
 
-#     def _build_prompt(self, query: str, search_results: list[SearchResult]) -> str:
-#         """Build context-aware prompt from query and retrieved results."""
-#         context_parts = []
+    def _build_baseline_prompt(self, query: str, search_results: list[SearchResult]) -> str:
+        """Build context-aware prompt from query and retrieved results."""
+        context_parts = []
 
-#         for i, result in enumerate(search_results, 1):
-#             context_parts.append(f"Feedback {i}: {result.content}")
+        for i, result in enumerate(search_results, 1):
+            context_parts.append(f"Feedback {i}: {result.content}")
 
-#         context = "\n\n".join(context_parts)
+        context = "\n\n".join(context_parts)
 
-#         prompt = f"""You are a helpful assistant that answers questions based on user feedback summaries.
+        prompt = f"""You are a helpful assistant that answers questions based on user feedback summaries.
 
-# Context from user feedback:
-# {context}
+                Context from user feedback:
+                {context}
 
-# Question: {query}
+                Question: {query}
 
-# Based on the feedback summaries above, provide a comprehensive answer to the question. If the feedback doesn't contain relevant information, say so clearly.
+                Based on the feedback summaries above, provide a comprehensive answer to the question. If the feedback doesn't contain relevant information, say so clearly.
 
-# Answer:"""
+                Answer:"""
 
-#         return prompt
+        return prompt
 
-    def _build_prompt(self, query: str, search_results: list[SearchResult]) -> str:
+    def _build_enhanced_prompt(self, query: str, search_results: list[SearchResult]) -> str:
         """Build context-aware prompt with raw feedback for inline quote extraction."""
         context_parts = []
 
@@ -103,8 +104,10 @@ class OpenAIClient:
 
         ## OUTPUT FORMAT:
 
-        Summary followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
-        
+        Summary 1 followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
+        Summary 2 followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
+        ..
+        Summary n followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
 
         Example of output format:
 
@@ -116,17 +119,14 @@ class OpenAIClient:
 
         return prompt
 
-    async def generate_answer(
-        self, query: str, search_results: list[SearchResult]
-    ) -> AsyncGenerator[str, None]:
-        """Stream answer chunks from query and retrieved context."""
-        prompt = self._build_prompt(query, search_results)
-        print("Tokens of prompt: ", len(prompt)//4)
-        # def save_results(results: list[SearchResult], path: str = "search_results.json"):
-        #     with open(path, "w") as f:
-        #         json.dump([r.model_dump() for r in results], f, indent=2)
-        # save_results(search_results)
+    async def generate_answer(self, query: str, search_results: list[SearchResult], mode="enhanced") -> AsyncGenerator[str, None]:
         
+        if mode=="enhanced":
+            prompt = self._build_enhanced_prompt(query, search_results)
+        else:
+            prompt = self._build_baseline_prompt(query, search_results)
+        self.last_cost = CostRecord(model=self.model, version=mode, query=query)
+
         stream = await self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -135,8 +135,19 @@ class OpenAIClient:
             ],
             temperature=self.temperature,
             stream=True,
+            stream_options={"include_usage": True},
         )
 
+        t_start = time.perf_counter()
+        first_chunk = True
+
         async for chunk in stream:
-            if chunk.choices[0].delta.content:
+            if chunk.usage:
+                self.last_cost.input_tokens = chunk.usage.prompt_tokens
+                self.last_cost.output_tokens = chunk.usage.completion_tokens
+                self.last_cost.total_time = time.perf_counter() - t_start
+            if chunk.choices and chunk.choices[0].delta.content:
+                if first_chunk:
+                    self.last_cost.time_to_first_token = time.perf_counter() - t_start
+                    first_chunk = False
                 yield chunk.choices[0].delta.content

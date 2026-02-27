@@ -17,7 +17,7 @@ class RAGPipeline:
         self.retriever = retriever
         self.llm_client = llm_client
 
-    async def query(self, query: str) -> AsyncGenerator[str, None]:
+    async def query(self, query: str, mode: str = "enhanced") -> AsyncGenerator[str, None]:
         """Process query through RAG pipeline, streaming the answer."""
         search_results = await self.retriever.search(query)
 
@@ -25,5 +25,5 @@ class RAGPipeline:
             yield "No relevant feedback found for your query."
             return
 
-        async for chunk in self.llm_client.generate_answer(query, search_results):
+        async for chunk in self.llm_client.generate_answer(query, search_results, mode=mode):
             yield chunk

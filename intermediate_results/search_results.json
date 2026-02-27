@@ -1,0 +1,2264 @@
+[
+  {
+    "content": "The user finds Canva's current performance terrible, with issues like freezing during simple tasks, and suggests reevaluating UX design and prioritizing fluidity over adding features.",
+    "feedback_summary": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_summary",
+      "id": "20fe51a0-688b-5837-ba8f-2b809903f20c",
+      "attributes": {
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "The user finds Canva's current performance terrible, with issues like freezing during simple tasks, and suggests reevaluating UX design and prioritizing fluidity over adding features."
+            ]
+          }
+        },
+        "feedback_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "f8c057fb-0d61-5dab-a809-3ae0add2f4e5"
+            ]
+          }
+        },
+        "summary_type": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "BASIC"
+            ]
+          }
+        }
+      },
+      "createdAt": "1768074041",
+      "updatedAt": "1768074041"
+    },
+    "feedback_record": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_record",
+      "id": "f8c057fb-0d61-5dab-a809-3ae0add2f4e5",
+      "attributes": {
+        "agent_metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {}
+        },
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "The app WAS much better, today it is terrible, which makes me angry! How can you IMPROVE something that was good before??? And yes, I use the PRO version, that is, I have paid to get frustrated... The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of \"features\" that is impossible to use!!!"
+            ]
+          }
+        },
+        "has_summary": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              false
+            ]
+          }
+        },
+        "has_user_content": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              true
+            ]
+          }
+        },
+        "integration_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "5e804ede-dd96-4b38-9f46-463dffea945f"
+            ]
+          }
+        },
+        "language": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "pt"
+            ]
+          }
+        },
+        "metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {
+            "values": {
+              "common__dot__city__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__country__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__customerid__s": {
+                "string": {
+                  "values": [
+                    "Hioglan Lima"
+                  ]
+                }
+              },
+              "common__dot__id__s": {
+                "string": {
+                  "values": [
+                    "8e64a85b-927c-4049-be73-be51fdcc0a03"
+                  ]
+                }
+              },
+              "common__dot__timezone__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "playstore__dot__androidosversion__n": {
+                "float": {
+                  "values": [
+                    36
+                  ]
+                }
+              },
+              "playstore__dot__appid__s": {
+                "string": {
+                  "values": [
+                    "com.canva.editor"
+                  ]
+                }
+              },
+              "playstore__dot__device__s": {
+                "string": {
+                  "values": [
+                    "m54x"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                "string": {
+                  "values": [
+                    "FORM_FACTOR_PHONE"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__glesversion__n": {
+                "float": {
+                  "values": [
+                    196610
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                "string": {
+                  "values": [
+                    "Samsung"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                "string": {
+                  "values": [
+                    "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__productname__s": {
+                "string": {
+                  "values": [
+                    "m54x (Galaxy M54 5G)"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__rammb__n": {
+                "float": {
+                  "values": [
+                    7437
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                "float": {
+                  "values": [
+                    450
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                "float": {
+                  "values": [
+                    2400
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                "float": {
+                  "values": [
+                    1080
+                  ]
+                }
+              },
+              "playstore__dot__id__s": {
+                "string": {
+                  "values": [
+                    "8e64a85b-927c-4049-be73-be51fdcc0a03"
+                  ]
+                }
+              },
+              "playstore__dot__score__n": {
+                "float": {
+                  "values": [
+                    1
+                  ]
+                }
+              },
+              "playstore__dot__thumbsdowncount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__thumbsupcount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__timestamp__n": {
+                "float": {
+                  "values": [
+                    1768069522
+                  ]
+                }
+              },
+              "playstore__dot__useful__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__version__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "origin_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "8e64a85b-927c-4049-be73-be51fdcc0a03"
+            ]
+          }
+        },
+        "raw_record": {
+          "type": "INTERNAL_PROTO",
+          "internalProto": {
+            "singularityRecord": {
+              "id": "f8c057fb-0d61-5dab-a809-3ae0add2f4e5",
+              "sourceID": "Playstore",
+              "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+              "text": "O app J\u00c1 FOI muito melhor, hoje est\u00e1 p\u00e9ssimo, o que me deixa revoltado! como podem PIORAR algo que antes ERA bom??? E sim, eu uso a vers\u00e3o PRO, ou seja, tenho pago para passar raiva... O App TRAVA, fazendo coisas SIMPLES como: ao selecionar algo, copiar e colar. A empresa tamb\u00e9m precisa reavaliar as decis\u00f5es de UX DESIGNER urgentemente. A inova\u00e7\u00e3o precisa ser tamb\u00e9m inteligente, vcs enchem de recursos mas esquecem da fluidez do produto, ou seja, um app cheio de \"recursos\" imposs\u00edvel de usar!!!",
+              "metadata": {
+                "keyValues": {
+                  "common__dot__city__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__country__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__customerid__s": {
+                    "s": [
+                      "Hioglan Lima"
+                    ]
+                  },
+                  "common__dot__id__s": {
+                    "s": [
+                      "8e64a85b-927c-4049-be73-be51fdcc0a03"
+                    ]
+                  },
+                  "common__dot__timezone__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "playstore__dot__androidosversion__n": {
+                    "n": [
+                      36
+                    ]
+                  },
+                  "playstore__dot__appid__s": {
+                    "s": [
+                      "com.canva.editor"
+                    ]
+                  },
+                  "playstore__dot__device__s": {
+                    "s": [
+                      "m54x"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                    "s": [
+                      "FORM_FACTOR_PHONE"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__glesversion__n": {
+                    "n": [
+                      196610
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                    "s": [
+                      "Samsung"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                    "s": [
+                      "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__productname__s": {
+                    "s": [
+                      "m54x (Galaxy M54 5G)"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__rammb__n": {
+                    "n": [
+                      7437
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                    "n": [
+                      450
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                    "n": [
+                      2400
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                    "n": [
+                      1080
+                    ]
+                  },
+                  "playstore__dot__id__s": {
+                    "s": [
+                      "8e64a85b-927c-4049-be73-be51fdcc0a03"
+                    ]
+                  },
+                  "playstore__dot__score__n": {
+                    "n": [
+                      1
+                    ]
+                  },
+                  "playstore__dot__thumbsdowncount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__thumbsupcount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__timestamp__n": {
+                    "n": [
+                      1768069522
+                    ]
+                  },
+                  "playstore__dot__useful__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__version__s": {
+                    "s": [
+                      ""
+                    ]
+                  }
+                }
+              },
+              "timestamp": "1768069522",
+              "createdAt": "1768074041",
+              "languages": [
+                {
+                  "iso6393": "por",
+                  "iso6391": "pt",
+                  "source": "detected"
+                }
+              ],
+              "textEn": "The app WAS much better, today it is terrible, which makes me angry! How can you IMPROVE something that was good before??? And yes, I use the PRO version, that is, I have paid to get frustrated... The app FREEZES, doing SIMPLE things like: selecting something, copying and pasting. The company also needs to urgently reevaluate the decisions of UX DESIGNER. Innovation also needs to be smart, you fill it with features but forget about the fluidity of the product, that is, an app full of \"features\" that is impossible to use!!!",
+              "type": "RecordTypeReview",
+              "integrationID": "5e804ede-dd96-4b38-9f46-463dffea945f",
+              "originRecordID": "8e64a85b-927c-4049-be73-be51fdcc0a03"
+            }
+          }
+        },
+        "source": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "Playstore"
+            ]
+          }
+        },
+        "summary": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              ""
+            ]
+          }
+        }
+      },
+      "createdAt": "1768074041",
+      "updatedAt": "1768074041",
+      "recordTimestamp": "1768069522"
+    },
+    "score": -0.3081401586532593
+  },
+  {
+    "content": "The user finds Canva great but is frustrated that some features are not yet available.",
+    "feedback_summary": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_summary",
+      "id": "023e93c6-c8f3-50f4-a655-b4a1bd38b553",
+      "attributes": {
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "The user finds Canva great but is frustrated that some features are not yet available."
+            ]
+          }
+        },
+        "feedback_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "6fda1676-37ad-5789-aa11-9302bb68fa05"
+            ]
+          }
+        },
+        "summary_type": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "BASIC"
+            ]
+          }
+        }
+      },
+      "createdAt": "1768074041",
+      "updatedAt": "1768074041"
+    },
+    "feedback_record": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_record",
+      "id": "6fda1676-37ad-5789-aa11-9302bb68fa05",
+      "attributes": {
+        "agent_metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {}
+        },
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "<PERSON_1> is great but there are many things I can create more <PERSON_2> hasn't released it for me yet"
+            ]
+          }
+        },
+        "has_summary": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              false
+            ]
+          }
+        },
+        "has_user_content": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              true
+            ]
+          }
+        },
+        "integration_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "5e804ede-dd96-4b38-9f46-463dffea945f"
+            ]
+          }
+        },
+        "language": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "pt"
+            ]
+          }
+        },
+        "metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {
+            "values": {
+              "common__dot__city__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__country__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__customerid__s": {
+                "string": {
+                  "values": [
+                    "Pollyana Silva"
+                  ]
+                }
+              },
+              "common__dot__id__s": {
+                "string": {
+                  "values": [
+                    "bca2b69f-04d0-461a-a59f-0698754cf161"
+                  ]
+                }
+              },
+              "common__dot__timezone__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "playstore__dot__androidosversion__n": {
+                "float": {
+                  "values": [
+                    35
+                  ]
+                }
+              },
+              "playstore__dot__appid__s": {
+                "string": {
+                  "values": [
+                    "com.canva.editor"
+                  ]
+                }
+              },
+              "playstore__dot__device__s": {
+                "string": {
+                  "values": [
+                    "gale"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                "string": {
+                  "values": [
+                    "FORM_FACTOR_PHONE"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__glesversion__n": {
+                "float": {
+                  "values": [
+                    196610
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                "string": {
+                  "values": [
+                    "Redmi"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                "string": {
+                  "values": [
+                    "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__productname__s": {
+                "string": {
+                  "values": [
+                    "gale (Redmi 13C)"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__rammb__n": {
+                "float": {
+                  "values": [
+                    7673
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                "float": {
+                  "values": [
+                    320
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                "float": {
+                  "values": [
+                    1600
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                "float": {
+                  "values": [
+                    720
+                  ]
+                }
+              },
+              "playstore__dot__id__s": {
+                "string": {
+                  "values": [
+                    "bca2b69f-04d0-461a-a59f-0698754cf161"
+                  ]
+                }
+              },
+              "playstore__dot__score__n": {
+                "float": {
+                  "values": [
+                    5
+                  ]
+                }
+              },
+              "playstore__dot__thumbsdowncount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__thumbsupcount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__timestamp__n": {
+                "float": {
+                  "values": [
+                    1768072787
+                  ]
+                }
+              },
+              "playstore__dot__useful__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__version__s": {
+                "string": {
+                  "values": [
+                    "2.343.0"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "origin_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "bca2b69f-04d0-461a-a59f-0698754cf161"
+            ]
+          }
+        },
+        "raw_record": {
+          "type": "INTERNAL_PROTO",
+          "internalProto": {
+            "singularityRecord": {
+              "id": "6fda1676-37ad-5789-aa11-9302bb68fa05",
+              "sourceID": "Playstore",
+              "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+              "text": "<PERSON_1> \u00e9 \u00f3timo por\u00e9m tem muitas coisas q eu posso criar mais <PERSON_2> n\u00e3o liberou para mim a\u00ednda",
+              "metadata": {
+                "keyValues": {
+                  "common__dot__city__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__country__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__customerid__s": {
+                    "s": [
+                      "Pollyana Silva"
+                    ]
+                  },
+                  "common__dot__id__s": {
+                    "s": [
+                      "bca2b69f-04d0-461a-a59f-0698754cf161"
+                    ]
+                  },
+                  "common__dot__timezone__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "playstore__dot__androidosversion__n": {
+                    "n": [
+                      35
+                    ]
+                  },
+                  "playstore__dot__appid__s": {
+                    "s": [
+                      "com.canva.editor"
+                    ]
+                  },
+                  "playstore__dot__device__s": {
+                    "s": [
+                      "gale"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                    "s": [
+                      "FORM_FACTOR_PHONE"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__glesversion__n": {
+                    "n": [
+                      196610
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                    "s": [
+                      "Redmi"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                    "s": [
+                      "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__productname__s": {
+                    "s": [
+                      "gale (Redmi 13C)"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__rammb__n": {
+                    "n": [
+                      7673
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                    "n": [
+                      320
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                    "n": [
+                      1600
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                    "n": [
+                      720
+                    ]
+                  },
+                  "playstore__dot__id__s": {
+                    "s": [
+                      "bca2b69f-04d0-461a-a59f-0698754cf161"
+                    ]
+                  },
+                  "playstore__dot__score__n": {
+                    "n": [
+                      5
+                    ]
+                  },
+                  "playstore__dot__thumbsdowncount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__thumbsupcount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__timestamp__n": {
+                    "n": [
+                      1768072787
+                    ]
+                  },
+                  "playstore__dot__useful__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__version__s": {
+                    "s": [
+                      "2.343.0"
+                    ]
+                  }
+                }
+              },
+              "timestamp": "1768072787",
+              "createdAt": "1768074041",
+              "languages": [
+                {
+                  "iso6393": "por",
+                  "iso6391": "pt",
+                  "source": "detected"
+                }
+              ],
+              "textEn": "<PERSON_1> is great but there are many things I can create more <PERSON_2> hasn't released it for me yet",
+              "type": "RecordTypeReview",
+              "integrationID": "5e804ede-dd96-4b38-9f46-463dffea945f",
+              "originRecordID": "bca2b69f-04d0-461a-a59f-0698754cf161"
+            }
+          }
+        },
+        "source": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "Playstore"
+            ]
+          }
+        },
+        "summary": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              ""
+            ]
+          }
+        }
+      },
+      "createdAt": "1768074041",
+      "updatedAt": "1768074041",
+      "recordTimestamp": "1768072787"
+    },
+    "score": -0.39534103870391846
+  },
+  {
+    "content": "The user finds Canva inconvenient and complicated, with the phone freezing and taking longer to create clips, which has caused frustration.",
+    "feedback_summary": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_summary",
+      "id": "0d52a135-2bf7-5bb8-ab4c-5bd0dc175db3",
+      "attributes": {
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "The user finds Canva inconvenient and complicated, with the phone freezing and taking longer to create clips, which has caused frustration."
+            ]
+          }
+        },
+        "feedback_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "39ac5049-44aa-5ab6-bf8d-0ca37d630428"
+            ]
+          }
+        },
+        "summary_type": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "BASIC"
+            ]
+          }
+        }
+      },
+      "createdAt": "1768038152",
+      "updatedAt": "1768038152"
+    },
+    "feedback_record": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_record",
+      "id": "39ac5049-44aa-5ab6-bf8d-0ca37d630428",
+      "attributes": {
+        "agent_metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {}
+        },
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "It's terribly inconvenient to work, everything needs to be adjusted to seconds, it wasn't like this a year ago, it was much more convenient and simpler, the phone has started to freeze terribly. One day for one clip is impossible, I used to manage faster. It has frayed my nerves..."
+            ]
+          }
+        },
+        "has_summary": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              false
+            ]
+          }
+        },
+        "has_user_content": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              true
+            ]
+          }
+        },
+        "integration_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "5e804ede-dd96-4b38-9f46-463dffea945f"
+            ]
+          }
+        },
+        "language": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "ru"
+            ]
+          }
+        },
+        "metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {
+            "values": {
+              "common__dot__city__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__country__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__customerid__s": {
+                "string": {
+                  "values": [
+                    "\u0410\u043b\u043c\u0430\u0440\u0430 \u041c\u0443\u043a\u0430\u0448\u0435\u0432\u0430"
+                  ]
+                }
+              },
+              "common__dot__id__s": {
+                "string": {
+                  "values": [
+                    "9c12d955-968d-449c-9c1b-35d42127d1df"
+                  ]
+                }
+              },
+              "common__dot__timezone__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "playstore__dot__androidosversion__n": {
+                "float": {
+                  "values": [
+                    34
+                  ]
+                }
+              },
+              "playstore__dot__appid__s": {
+                "string": {
+                  "values": [
+                    "com.canva.editor"
+                  ]
+                }
+              },
+              "playstore__dot__device__s": {
+                "string": {
+                  "values": [
+                    "a04e"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                "string": {
+                  "values": [
+                    "FORM_FACTOR_PHONE"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__glesversion__n": {
+                "float": {
+                  "values": [
+                    196610
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                "string": {
+                  "values": [
+                    "Samsung"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                "string": {
+                  "values": [
+                    "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__productname__s": {
+                "string": {
+                  "values": [
+                    "a04e (Galaxy A04e)"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__rammb__n": {
+                "float": {
+                  "values": [
+                    2774
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                "float": {
+                  "values": [
+                    300
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                "float": {
+                  "values": [
+                    1600
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                "float": {
+                  "values": [
+                    720
+                  ]
+                }
+              },
+              "playstore__dot__id__s": {
+                "string": {
+                  "values": [
+                    "9c12d955-968d-449c-9c1b-35d42127d1df"
+                  ]
+                }
+              },
+              "playstore__dot__language__dot__code__s": {
+                "string": {
+                  "values": [
+                    "ru"
+                  ]
+                }
+              },
+              "playstore__dot__language__dot__name__s": {
+                "string": {
+                  "values": [
+                    "Russian"
+                  ]
+                }
+              },
+              "playstore__dot__score__n": {
+                "float": {
+                  "values": [
+                    2
+                  ]
+                }
+              },
+              "playstore__dot__thumbsdowncount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__thumbsupcount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__timestamp__n": {
+                "float": {
+                  "values": [
+                    1768022351
+                  ]
+                }
+              },
+              "playstore__dot__useful__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__version__s": {
+                "string": {
+                  "values": [
+                    "2.343.0"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "origin_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "9c12d955-968d-449c-9c1b-35d42127d1df"
+            ]
+          }
+        },
+        "raw_record": {
+          "type": "INTERNAL_PROTO",
+          "internalProto": {
+            "singularityRecord": {
+              "id": "39ac5049-44aa-5ab6-bf8d-0ca37d630428",
+              "sourceID": "Playstore",
+              "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+              "text": "\u0443\u0436\u0430\u0441\u043d\u043e \u043d\u0435\u0443\u0434\u043e\u0431\u043d\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0432\u0441\u0435 \u043d\u0430\u0434\u043e \u043d\u043a\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u0442\u044c \u043f\u043e\u0434 \u0441\u0435\u043a\u0443\u043d\u0434\u044b \u0440\u0430\u043d\u044c\u0448\u0435 \u0442\u0430\u043a\u043e\u0433\u043e \u043d\u0435 \u0431\u044b\u043b\u043e \u0433\u043e\u0434 \u043d\u0430\u0437\u0430\u0434 \u0431\u044b\u043b\u043e \u043d\u0430\u043c\u043d\u043e\u0433\u043e \u0443\u0434\u043e\u0431\u043d\u0435\u0435 \u0438 \u043f\u0440\u043e\u0449\u0435 \u0442\u0435\u043b\u0435\u0444\u043e\u043d \u0441\u0442\u0430\u043b \u0443\u0436\u0430\u0441\u043d\u043e \u0437\u0430\u0432\u0438\u0441\u0430\u0442\u044c. \u043e\u0434\u0438\u043d \u0434\u0435\u043d\u044c \u043d\u0430 \u043e\u0434\u0438\u043d \u043a\u043b\u0438\u043f \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e \u0440\u0430\u043d\u044c\u0448\u0435 \u0441\u043f\u0440\u0430\u0432\u043b\u044f\u043b\u0430\u0441\u044c \u0431\u044b\u0441\u0442\u0440\u0435\u0435. \u043f\u043e\u0442\u0440\u0435\u043f\u0430\u043b\u0430 \u0441\u0432\u043e\u0438 \u043d\u0435\u0440\u0432\u044b...",
+              "metadata": {
+                "keyValues": {
+                  "common__dot__city__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__country__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__customerid__s": {
+                    "s": [
+                      "\u0410\u043b\u043c\u0430\u0440\u0430 \u041c\u0443\u043a\u0430\u0448\u0435\u0432\u0430"
+                    ]
+                  },
+                  "common__dot__id__s": {
+                    "s": [
+                      "9c12d955-968d-449c-9c1b-35d42127d1df"
+                    ]
+                  },
+                  "common__dot__timezone__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "playstore__dot__androidosversion__n": {
+                    "n": [
+                      34
+                    ]
+                  },
+                  "playstore__dot__appid__s": {
+                    "s": [
+                      "com.canva.editor"
+                    ]
+                  },
+                  "playstore__dot__device__s": {
+                    "s": [
+                      "a04e"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                    "s": [
+                      "FORM_FACTOR_PHONE"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__glesversion__n": {
+                    "n": [
+                      196610
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                    "s": [
+                      "Samsung"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                    "s": [
+                      "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__productname__s": {
+                    "s": [
+                      "a04e (Galaxy A04e)"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__rammb__n": {
+                    "n": [
+                      2774
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                    "n": [
+                      300
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                    "n": [
+                      1600
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                    "n": [
+                      720
+                    ]
+                  },
+                  "playstore__dot__id__s": {
+                    "s": [
+                      "9c12d955-968d-449c-9c1b-35d42127d1df"
+                    ]
+                  },
+                  "playstore__dot__language__dot__code__s": {
+                    "s": [
+                      "ru"
+                    ]
+                  },
+                  "playstore__dot__language__dot__name__s": {
+                    "s": [
+                      "Russian"
+                    ]
+                  },
+                  "playstore__dot__score__n": {
+                    "n": [
+                      2
+                    ]
+                  },
+                  "playstore__dot__thumbsdowncount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__thumbsupcount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__timestamp__n": {
+                    "n": [
+                      1768022351
+                    ]
+                  },
+                  "playstore__dot__useful__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__version__s": {
+                    "s": [
+                      "2.343.0"
+                    ]
+                  }
+                }
+              },
+              "timestamp": "1768022351",
+              "createdAt": "1768038152",
+              "languages": [
+                {
+                  "iso6393": "rus",
+                  "iso6391": "ru",
+                  "source": "detected"
+                }
+              ],
+              "textEn": "It's terribly inconvenient to work, everything needs to be adjusted to seconds, it wasn't like this a year ago, it was much more convenient and simpler, the phone has started to freeze terribly. One day for one clip is impossible, I used to manage faster. It has frayed my nerves...",
+              "type": "RecordTypeReview",
+              "integrationID": "5e804ede-dd96-4b38-9f46-463dffea945f",
+              "originRecordID": "9c12d955-968d-449c-9c1b-35d42127d1df"
+            }
+          }
+        },
+        "source": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "Playstore"
+            ]
+          }
+        },
+        "summary": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              ""
+            ]
+          }
+        }
+      },
+      "createdAt": "1768038152",
+      "updatedAt": "1768038152",
+      "recordTimestamp": "1768022351"
+    },
+    "score": -0.40297627449035645
+  },
+  {
+    "content": "The user finds Canva very slow and requests a fix, despite liking the app and finding it helpful.",
+    "feedback_summary": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_summary",
+      "id": "10732e24-88ca-5e0c-8d34-62f8a6827817",
+      "attributes": {
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "The user finds Canva very slow and requests a fix, despite liking the app and finding it helpful."
+            ]
+          }
+        },
+        "feedback_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "e6c269e3-37ed-585b-994d-af0bc339491d"
+            ]
+          }
+        },
+        "summary_type": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "BASIC"
+            ]
+          }
+        }
+      },
+      "createdAt": "1768038152",
+      "updatedAt": "1768038152"
+    },
+    "feedback_record": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_record",
+      "id": "e6c269e3-37ed-585b-994d-af0bc339491d",
+      "attributes": {
+        "agent_metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {}
+        },
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow"
+            ]
+          }
+        },
+        "has_summary": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              false
+            ]
+          }
+        },
+        "has_user_content": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              true
+            ]
+          }
+        },
+        "integration_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "5e804ede-dd96-4b38-9f46-463dffea945f"
+            ]
+          }
+        },
+        "language": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "en"
+            ]
+          }
+        },
+        "metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {
+            "values": {
+              "common__dot__city__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__country__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__customerid__s": {
+                "string": {
+                  "values": [
+                    "Nonjabulo Mabaso"
+                  ]
+                }
+              },
+              "common__dot__id__s": {
+                "string": {
+                  "values": [
+                    "875e4aab-fcd1-4aa4-b34d-28f4563a7648"
+                  ]
+                }
+              },
+              "common__dot__timezone__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "playstore__dot__androidosversion__n": {
+                "float": {
+                  "values": [
+                    35
+                  ]
+                }
+              },
+              "playstore__dot__appid__s": {
+                "string": {
+                  "values": [
+                    "com.canva.editor"
+                  ]
+                }
+              },
+              "playstore__dot__device__s": {
+                "string": {
+                  "values": [
+                    "T60Ai"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                "string": {
+                  "values": [
+                    "FORM_FACTOR_TABLET"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__glesversion__n": {
+                "float": {
+                  "values": [
+                    196610
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                "string": {
+                  "values": [
+                    "Teclast"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                "string": {
+                  "values": [
+                    "ABI_ARM64_V8"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__productname__s": {
+                "string": {
+                  "values": [
+                    "T60Ai (T60Ai_ROW)"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__rammb__n": {
+                "float": {
+                  "values": [
+                    5750
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                "float": {
+                  "values": [
+                    240
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                "float": {
+                  "values": [
+                    2000
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                "float": {
+                  "values": [
+                    1200
+                  ]
+                }
+              },
+              "playstore__dot__id__s": {
+                "string": {
+                  "values": [
+                    "875e4aab-fcd1-4aa4-b34d-28f4563a7648"
+                  ]
+                }
+              },
+              "playstore__dot__language__dot__code__s": {
+                "string": {
+                  "values": [
+                    "en"
+                  ]
+                }
+              },
+              "playstore__dot__language__dot__name__s": {
+                "string": {
+                  "values": [
+                    "English(US)"
+                  ]
+                }
+              },
+              "playstore__dot__score__n": {
+                "float": {
+                  "values": [
+                    3
+                  ]
+                }
+              },
+              "playstore__dot__thumbsdowncount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__thumbsupcount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__timestamp__n": {
+                "float": {
+                  "values": [
+                    1768037707
+                  ]
+                }
+              },
+              "playstore__dot__useful__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__version__s": {
+                "string": {
+                  "values": [
+                    "2.343.0"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "origin_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "875e4aab-fcd1-4aa4-b34d-28f4563a7648"
+            ]
+          }
+        },
+        "raw_record": {
+          "type": "INTERNAL_PROTO",
+          "internalProto": {
+            "singularityRecord": {
+              "id": "e6c269e3-37ed-585b-994d-af0bc339491d",
+              "sourceID": "Playstore",
+              "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+              "text": "Canva is sooo slow very slow I updated it but it just got worse please fix this I like your app it helpful but it's just slow",
+              "metadata": {
+                "keyValues": {
+                  "common__dot__city__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__country__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__customerid__s": {
+                    "s": [
+                      "Nonjabulo Mabaso"
+                    ]
+                  },
+                  "common__dot__id__s": {
+                    "s": [
+                      "875e4aab-fcd1-4aa4-b34d-28f4563a7648"
+                    ]
+                  },
+                  "common__dot__timezone__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "playstore__dot__androidosversion__n": {
+                    "n": [
+                      35
+                    ]
+                  },
+                  "playstore__dot__appid__s": {
+                    "s": [
+                      "com.canva.editor"
+                    ]
+                  },
+                  "playstore__dot__device__s": {
+                    "s": [
+                      "T60Ai"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                    "s": [
+                      "FORM_FACTOR_TABLET"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__glesversion__n": {
+                    "n": [
+                      196610
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                    "s": [
+                      "Teclast"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                    "s": [
+                      "ABI_ARM64_V8"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__productname__s": {
+                    "s": [
+                      "T60Ai (T60Ai_ROW)"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__rammb__n": {
+                    "n": [
+                      5750
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                    "n": [
+                      240
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                    "n": [
+                      2000
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                    "n": [
+                      1200
+                    ]
+                  },
+                  "playstore__dot__id__s": {
+                    "s": [
+                      "875e4aab-fcd1-4aa4-b34d-28f4563a7648"
+                    ]
+                  },
+                  "playstore__dot__language__dot__code__s": {
+                    "s": [
+                      "en"
+                    ]
+                  },
+                  "playstore__dot__language__dot__name__s": {
+                    "s": [
+                      "English(US)"
+                    ]
+                  },
+                  "playstore__dot__score__n": {
+                    "n": [
+                      3
+                    ]
+                  },
+                  "playstore__dot__thumbsdowncount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__thumbsupcount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__timestamp__n": {
+                    "n": [
+                      1768037707
+                    ]
+                  },
+                  "playstore__dot__useful__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__version__s": {
+                    "s": [
+                      "2.343.0"
+                    ]
+                  }
+                }
+              },
+              "timestamp": "1768037707",
+              "createdAt": "1768038152",
+              "languages": [
+                {
+                  "iso6393": "eng",
+                  "iso6391": "en",
+                  "source": "detected"
+                }
+              ],
+              "type": "RecordTypeReview",
+              "integrationID": "5e804ede-dd96-4b38-9f46-463dffea945f",
+              "originRecordID": "875e4aab-fcd1-4aa4-b34d-28f4563a7648"
+            }
+          }
+        },
+        "source": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "Playstore"
+            ]
+          }
+        },
+        "summary": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              ""
+            ]
+          }
+        }
+      },
+      "createdAt": "1768038152",
+      "updatedAt": "1768078121",
+      "version": "1",
+      "recordTimestamp": "1768037707"
+    },
+    "score": -0.4221827983856201
+  },
+  {
+    "content": "The user experienced an issue with Canva where their edits to a payment receipt using a free template do not save and revert to the original, and expressed frustration by calling the app 'stupid'.",
+    "feedback_summary": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_summary",
+      "id": "0d81957b-73f4-5ad1-99ff-1c5143bc29f0",
+      "attributes": {
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "The user experienced an issue with Canva where their edits to a payment receipt using a free template do not save and revert to the original, and expressed frustration by calling the app 'stupid'."
+            ]
+          }
+        },
+        "feedback_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "398b06fd-638a-5044-b1f4-b965854ea159"
+            ]
+          }
+        },
+        "summary_type": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "BASIC"
+            ]
+          }
+        }
+      },
+      "createdAt": "1768056386",
+      "updatedAt": "1768056386"
+    },
+    "feedback_record": {
+      "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+      "objectID": "feedback_record",
+      "id": "398b06fd-638a-5044-b1f4-b965854ea159",
+      "attributes": {
+        "agent_metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {}
+        },
+        "content": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "bad, I just edited the payment receipt using a free template, then when I want to open it again, my edit only appears briefly and then what shows up is still like before it was edited, I opened it several times and it still doesn't appear, this app is stupid."
+            ]
+          }
+        },
+        "has_summary": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              false
+            ]
+          }
+        },
+        "has_user_content": {
+          "type": "BOOLEAN",
+          "boolean": {
+            "values": [
+              true
+            ]
+          }
+        },
+        "integration_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "5e804ede-dd96-4b38-9f46-463dffea945f"
+            ]
+          }
+        },
+        "language": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "id"
+            ]
+          }
+        },
+        "metadata": {
+          "type": "KEY_VALUE",
+          "keyValues": {
+            "values": {
+              "common__dot__city__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__country__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "common__dot__customerid__s": {
+                "string": {
+                  "values": [
+                    "RUKMINI FAUZIATY"
+                  ]
+                }
+              },
+              "common__dot__id__s": {
+                "string": {
+                  "values": [
+                    "0f94840b-9c61-4833-824f-6043c52a984e"
+                  ]
+                }
+              },
+              "common__dot__timezone__s": {
+                "string": {
+                  "values": [
+                    ""
+                  ]
+                }
+              },
+              "playstore__dot__androidosversion__n": {
+                "float": {
+                  "values": [
+                    35
+                  ]
+                }
+              },
+              "playstore__dot__appid__s": {
+                "string": {
+                  "values": [
+                    "com.canva.editor"
+                  ]
+                }
+              },
+              "playstore__dot__device__s": {
+                "string": {
+                  "values": [
+                    "aristotle"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                "string": {
+                  "values": [
+                    "FORM_FACTOR_PHONE"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__glesversion__n": {
+                "float": {
+                  "values": [
+                    196610
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                "string": {
+                  "values": [
+                    "Xiaomi"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                "string": {
+                  "values": [
+                    "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__productname__s": {
+                "string": {
+                  "values": [
+                    "aristotle (Xiaomi 13T)"
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__rammb__n": {
+                "float": {
+                  "values": [
+                    7424
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                "float": {
+                  "values": [
+                    480
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                "float": {
+                  "values": [
+                    2712
+                  ]
+                }
+              },
+              "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                "float": {
+                  "values": [
+                    1220
+                  ]
+                }
+              },
+              "playstore__dot__id__s": {
+                "string": {
+                  "values": [
+                    "0f94840b-9c61-4833-824f-6043c52a984e"
+                  ]
+                }
+              },
+              "playstore__dot__language__dot__code__s": {
+                "string": {
+                  "values": [
+                    "id"
+                  ]
+                }
+              },
+              "playstore__dot__language__dot__name__s": {
+                "string": {
+                  "values": [
+                    "Indonesian"
+                  ]
+                }
+              },
+              "playstore__dot__score__n": {
+                "float": {
+                  "values": [
+                    1
+                  ]
+                }
+              },
+              "playstore__dot__thumbsdowncount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__thumbsupcount__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__timestamp__n": {
+                "float": {
+                  "values": [
+                    1768050028
+                  ]
+                }
+              },
+              "playstore__dot__useful__n": {
+                "float": {
+                  "values": [
+                    0
+                  ]
+                }
+              },
+              "playstore__dot__version__s": {
+                "string": {
+                  "values": [
+                    "2.343.0"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "origin_record_id": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "0f94840b-9c61-4833-824f-6043c52a984e"
+            ]
+          }
+        },
+        "raw_record": {
+          "type": "INTERNAL_PROTO",
+          "internalProto": {
+            "singularityRecord": {
+              "id": "398b06fd-638a-5044-b1f4-b965854ea159",
+              "sourceID": "Playstore",
+              "orgID": "2ab23fce-75b8-49eb-a270-e8ec1d87d372",
+              "text": "jelek, gw habis edit struk pembayaran pake template gratis,, eh pas mau buka lagi, muncul sekilas doang editan gw trus yang muncul masih kayak sebelum di edit,, gw buka berkali kali masih ga muncul, kan tolol ni aplikasi.",
+              "metadata": {
+                "keyValues": {
+                  "common__dot__city__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__country__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "common__dot__customerid__s": {
+                    "s": [
+                      "RUKMINI FAUZIATY"
+                    ]
+                  },
+                  "common__dot__id__s": {
+                    "s": [
+                      "0f94840b-9c61-4833-824f-6043c52a984e"
+                    ]
+                  },
+                  "common__dot__timezone__s": {
+                    "s": [
+                      ""
+                    ]
+                  },
+                  "playstore__dot__androidosversion__n": {
+                    "n": [
+                      35
+                    ]
+                  },
+                  "playstore__dot__appid__s": {
+                    "s": [
+                      "com.canva.editor"
+                    ]
+                  },
+                  "playstore__dot__device__s": {
+                    "s": [
+                      "aristotle"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__deviceclass__s": {
+                    "s": [
+                      "FORM_FACTOR_PHONE"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__glesversion__n": {
+                    "n": [
+                      196610
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__manufacturer__s": {
+                    "s": [
+                      "Xiaomi"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__nativeplatform__s": {
+                    "s": [
+                      "ABI_ARM64_V8,ABI_ARM_V7,ABI_ARM"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__productname__s": {
+                    "s": [
+                      "aristotle (Xiaomi 13T)"
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__rammb__n": {
+                    "n": [
+                      7424
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screendensitydpi__n": {
+                    "n": [
+                      480
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenheightpx__n": {
+                    "n": [
+                      2712
+                    ]
+                  },
+                  "playstore__dot__devicemetadata__dot__screenwidthpx__n": {
+                    "n": [
+                      1220
+                    ]
+                  },
+                  "playstore__dot__id__s": {
+                    "s": [
+                      "0f94840b-9c61-4833-824f-6043c52a984e"
+                    ]
+                  },
+                  "playstore__dot__language__dot__code__s": {
+                    "s": [
+                      "id"
+                    ]
+                  },
+                  "playstore__dot__language__dot__name__s": {
+                    "s": [
+                      "Indonesian"
+                    ]
+                  },
+                  "playstore__dot__score__n": {
+                    "n": [
+                      1
+                    ]
+                  },
+                  "playstore__dot__thumbsdowncount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__thumbsupcount__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__timestamp__n": {
+                    "n": [
+                      1768050028
+                    ]
+                  },
+                  "playstore__dot__useful__n": {
+                    "n": [
+                      0
+                    ]
+                  },
+                  "playstore__dot__version__s": {
+                    "s": [
+                      "2.343.0"
+                    ]
+                  }
+                }
+              },
+              "timestamp": "1768050028",
+              "createdAt": "1768056386",
+              "languages": [
+                {
+                  "iso6393": "ind",
+                  "iso6391": "id",
+                  "source": "detected"
+                }
+              ],
+              "textEn": "bad, I just edited the payment receipt using a free template, then when I want to open it again, my edit only appears briefly and then what shows up is still like before it was edited, I opened it several times and it still doesn't appear, this app is stupid.",
+              "type": "RecordTypeReview",
+              "integrationID": "5e804ede-dd96-4b38-9f46-463dffea945f",
+              "originRecordID": "0f94840b-9c61-4833-824f-6043c52a984e"
+            }
+          }
+        },
+        "source": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              "Playstore"
+            ]
+          }
+        },
+        "summary": {
+          "type": "STRING",
+          "string": {
+            "values": [
+              ""
+            ]
+          }
+        }
+      },
+      "createdAt": "1768056386",
+      "updatedAt": "1768056386",
+      "recordTimestamp": "1768050028"
+    },
+    "score": -0.45228099822998047
+  }
+]

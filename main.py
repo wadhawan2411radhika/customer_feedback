@@ -37,9 +37,13 @@ async def query_command(
 
     print(f"Querying: {query}\n")
     print("Answer: ", end="", flush=True)
+
     async for chunk in pipeline.query(query):
         print(chunk, end="", flush=True)
-    print()  # Final newline
+    print()
+
+    if hasattr(pipeline.llm_client, "last_cost"):
+        print(f"\n--- Cost ---\n{pipeline.llm_client.last_cost}")
 
 
 async def main() -> None:
