@@ -85,7 +85,7 @@ async for chunk in stream:
 
 TTFT is captured on first content chunk; total time and token counts are captured on the usage chunk at the end.
 
-### Baseline vs Enhanced — Cost & Latency (GPT-4o-mini, 6 queries)
+### Baseline vs Enhanced — Cost & Latency (GPT-4o, 6 queries)
 
 | Metric | Baseline | Enhanced | Delta |
 |---|---|---|---|
