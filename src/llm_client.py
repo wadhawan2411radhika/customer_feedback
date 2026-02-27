@@ -1,82 +1,118 @@
-"""Groq LLM client for answer generation."""
+"""OpenAI LLM client for answer generation."""
 
+import json
 import os
 from collections.abc import AsyncGenerator
+from typing import Any
 
-from groq import AsyncGroq
+from openai import AsyncOpenAI
 
 from src.models import SearchResult
 
 
-class GroqClient:
-    """Async Groq client for generating answers from retrieved context.
-
-    Free models available on Groq:
-        - "qwen/qwen3-32b"         (best quality, supports reasoning)
-        - "llama-3.3-70b-versatile" (strong general purpose)
-        - "llama-3.1-8b-instant"   (fastest, lightweight)
-        - "gemma2-9b-it"           (good for instruction following)
-
-    Get a free API key at: https://console.groq.com
-    """
+class OpenAIClient:
+    """Async OpenAI client for generating answers from retrieved context."""
 
     def __init__(
         self,
         api_key: str | None = None,
-        model: str = "qwen/qwen3-32b",
-        temperature: float = 0.6,
-        max_completion_tokens: int = 4096,
-        top_p: float = 0.95,
-        reasoning_effort: str = "default",
+        model: str = "gpt-4o-mini",
+        temperature: float = 0.7,
     ):
-        api_key = api_key or os.getenv("GROQ_API_KEY")
+        api_key = api_key or os.getenv("OPENAI_API_KEY")
         if not api_key:
-            raise ValueError("GROQ_API_KEY environment variable is required")
+            raise ValueError("OPENAI_API_KEY environment variable is required")
 
-        self.client = AsyncGroq(api_key=api_key)
+        self.client = AsyncOpenAI(api_key=api_key)
         self.model = model
         self.temperature = temperature
-        self.max_completion_tokens = max_completion_tokens
-        self.top_p = top_p
-        self.reasoning_effort = reasoning_effort
+
+#     def _build_prompt(self, query: str, search_results: list[SearchResult]) -> str:
+#         """Build context-aware prompt from query and retrieved results."""
+#         context_parts = []
+
+#         for i, result in enumerate(search_results, 1):
+#             context_parts.append(f"Feedback {i}: {result.content}")
+
+#         context = "\n\n".join(context_parts)
+
+#         prompt = f"""You are a helpful assistant that answers questions based on user feedback summaries.
+
+# Context from user feedback:
+# {context}
+
+# Question: {query}
+
+# Based on the feedback summaries above, provide a comprehensive answer to the question. If the feedback doesn't contain relevant information, say so clearly.
+
+# Answer:"""
+
+#         return prompt
 
     def _build_prompt(self, query: str, search_results: list[SearchResult]) -> str:
-        """Build context-aware prompt from query and retrieved results."""
+        """Build context-aware prompt with raw feedback for inline quote extraction."""
         context_parts = []
 
         for i, result in enumerate(search_results, 1):
-            # Extract feedback record ID for citations
-            feedback_record_id = result.feedback_summary.get("attributes", {}).get("feedback_record_id", {}).get("string", {}).get("values", ["unknown"])[0]
-            
-            # Get original feedback content for quotes
-            original_content = result.feedback_record.get("attributes", {}).get("content", {}).get("string", {}).get("values", [""])[0]
-            
-            context_parts.append(f"""Feedback {i}:
-Summary: {result.content}
-Original Feedback: "{original_content}"
-Record ID: {feedback_record_id}""")
+            # Extract from nested structure per the data schema
+            context_parts.append(
+                f"[Source {i}]\n"
+                f"feedback_record_id: {result.feedback_summary['attributes']['feedback_record_id']['string']['values'][0]}\n"
+                f"Summary: {result.content}\n"
+                f"Original feedback (verbatim): {result.feedback_record['attributes']['content']['string']['values'][0]}"
+            )
 
-        context = "\n\n".join(context_parts)
+        context = "\n\n---\n\n".join(context_parts)
 
-        prompt = f"""You are a helpful assistant that answers questions based on user feedback summaries and original feedback records.
+        prompt = f"""You are a product insights analyst answering questions based on user feedback data.
 
-Your task is to provide comprehensive answers with inline quotes from the original feedback. Follow these guidelines:
+        You have access to two types of context for each source:
+        - A **summary** (paraphrased overview of the feedback)
+        - A **verbatim feedback** (exact original user text inside <verbatim_feedback> tags)
 
-1. Write a natural summary answer based on the feedback summaries
-2. Include verbatim quotes from the "Original Feedback" content to support your points
-3. Format quotes as block quotes using > and attribute them with — rec_[record_id]
-4. Weave quotes naturally into your response, not as a separate section at the end
-5. Only quote text that directly supports your summary points
-6. Ensure all quotes are exactly verbatim from the original feedback content
+        Context:
+        {context}
 
-Context from user feedback:
-{context}
+        ---
 
-Question: {query}
+        Question: {query}
 
-Based on the feedback above, provide a comprehensive answer with inline quotes from the original feedback records.
+        Instructions:
 
-Answer:"""
+        Summary instructions:
+        1. Based on the feedback summaries above, provide a comprehensive answer to the question. If the feedback doesn't contain relevant information, say so clearly.
+        2. Write a fluent, coherent answer using the summaries as your structural guide.
+
+        Quote instructions:
+        1. After every claim from summary, immediately support it with a verbatim quote from the <verbatim_feedback> tag of the relevant source.
+        2. Quotes MUST be formatted EXACTLY like this — a markdown block quote followed by the record ID:
+
+        > "<verbatim_feedback" — feedback_record_id
+
+        3. STRICT RULES for quotes:
+        - The quote must be a verbatim substring of the text inside followed by ">" tag — do NOT paraphrase
+        - Do NOT fabricate quotes or record IDs
+        - Do NOT quote from the summary — only from <verbatim_feedback>
+        - Do NOT collect all quotes at the end — each must follow the claim it supports in the following line
+        4. One claim can be supported by multiple quotes from different records — add each on its own line followed by ">" tag
+        5. If no verbatim text supports a claim, state it without a quote rather than fabricating one.
+        6. Verbatim quotes should be in the next line after summary
+
+        Feedback record id instructions:
+        1. Each inline quote shall be supported by feedback record id
+
+        ## OUTPUT FORMAT:
+
+        Summary followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
+        
+
+        Example of output format:
+
+        Users frequently complain about performance degradation after updates.
+        > "the app was much better before the update, now it freezes constantly" — rec_abc123
+        > "every time I update it gets slower and slower" — rec_def456
+
+        Answer:"""
 
         return prompt
 
@@ -85,7 +121,12 @@ Answer:"""
     ) -> AsyncGenerator[str, None]:
         """Stream answer chunks from query and retrieved context."""
         prompt = self._build_prompt(query, search_results)
-
+        print("Tokens of prompt: ", len(prompt)//4)
+        # def save_results(results: list[SearchResult], path: str = "search_results.json"):
+        #     with open(path, "w") as f:
+        #         json.dump([r.model_dump() for r in results], f, indent=2)
+        # save_results(search_results)
+        
         stream = await self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -93,11 +134,7 @@ Answer:"""
                 {"role": "user", "content": prompt},
             ],
             temperature=self.temperature,
-            max_completion_tokens=self.max_completion_tokens,
-            top_p=self.top_p,
-            reasoning_effort=self.reasoning_effort,
             stream=True,
-            stop=None,
         )
 
         async for chunk in stream:
