@@ -22,31 +22,7 @@ The `feedback_record_id` linking summary → raw feedback was already present in
 
 ---
 
-## 3. Design Decisions & Trade-offs
-
-### Index summaries, not raw feedback
-
-Retrieval runs against embedded summaries rather than raw feedback text. The alternative — embedding raw feedback directly — would produce noisier retrieval: raw reviews are often short, informal, multilingual, or emotionally charged, which makes them poor semantic targets. Summaries are normalized, English, and topic-dense, making them better anchors for semantic search. The raw text is still used — but only at generation time for quoting, not at retrieval time for ranking.
-
-### Pass both summary + raw to the LLM, not raw only
-
-The enhanced prompt sends both the summary and the raw feedback for each record. An alternative would be to drop summaries entirely and pass only raw text. That was rejected because summaries serve a structural role — the LLM uses them to decide what claims are worth making and how to group them, then reaches into the raw text for verbatim support. Raw-only context produced less coherent, less organized answers in early testing.
-
-### Single-pass generation vs two-pass
-
-A two-pass approach would first generate a prose summary, then run a second LLM call to extract and insert quotes. This is more controllable — each pass has a single, well-defined job — and easier to evaluate independently. However, it doubles latency and cost, and breaks streaming (you can't stream a response that depends on a second call). Single-pass was chosen to preserve streaming and keep cost linear. The trade-off is that prompt instructions carry more weight, and failures are harder to isolate.
-
-### Block quote format vs inline `[record_id]` markers
-
-The problem statement suggests `[rec_abc123]` markers inline in prose. Block quotes after each paragraph were chosen instead. Inline markers require the LLM to track citation-to-claim mapping mid-sentence, which increases the chance of misattribution. Paragraph-then-quotes is a simpler contract: write the claim, then prove it. It also produces cleaner output for a markdown renderer and makes the regex parser unambiguous.
-
-### Programmatic checks for verbatim/citation, LLM only for coherence
-
-Verbatim accuracy and citation correctness are evaluated programmatically (substring match + record ID lookup). An LLM judge could handle fuzzy matches better, but introduces its own errors and adds cost to every evaluation run. For binary factual checks — "is this text present in this record?" — deterministic is strictly better. Coherence is the one dimension that genuinely requires judgement about prose quality, so LLM-as-judge is reserved for that alone (~$0.002/query at eval time, not production time).
-
----
-
-## 4. Enhancing the LLM Context
+## 3. Enhancing the LLM Context
 
 The baseline prompt passed only summaries:
 
@@ -68,7 +44,7 @@ Labelling the two sources explicitly reduces a failure mode where the LLM quotes
 
 ---
 
-## 5. Prompt Design — Output Format
+## 4. Prompt Design — Output Format
 
 The LLM was instructed to produce a specific structure:
 
@@ -89,6 +65,30 @@ Key prompt instructions and their rationale:
 - **Quote from `verbatim_feedback` only** — explicitly forbidden from quoting the summary
 - **Omit rather than fabricate** — if no verbatim text supports a claim, skip the quote; this was the most important instruction for preventing hallucinations
 - **One quote per line** — keeps the regex parser simple and unambiguous
+
+---
+
+## 5. Design Decisions & Trade-offs
+
+### Index summaries, not raw feedback
+
+Retrieval runs against embedded summaries rather than raw feedback text. The alternative — embedding raw feedback directly — would produce noisier retrieval: raw reviews are often short, informal, multilingual, or emotionally charged, which makes them poor semantic targets. Summaries are normalized, English, and topic-dense, making them better anchors for semantic search. The raw text is still used — but only at generation time for quoting, not at retrieval time for ranking.
+
+### Pass both summary + raw to the LLM, not raw only
+
+The enhanced prompt sends both the summary and the raw feedback for each record. An alternative would be to drop summaries entirely and pass only raw text. That was rejected because summaries serve a structural role — the LLM uses them to decide what claims are worth making and how to group them, then reaches into the raw text for verbatim support. Raw-only context produced less coherent, less organized answers in early testing.
+
+### Single-pass generation vs two-pass
+
+A two-pass approach would first generate a prose summary, then run a second LLM call to extract and insert quotes. This is more controllable — each pass has a single, well-defined job — and easier to evaluate independently. However, it doubles latency and cost, and breaks streaming (you can't stream a response that depends on a second call). Single-pass was chosen to preserve streaming and keep cost linear. The trade-off is that prompt instructions carry more weight, and failures are harder to isolate.
+
+### Block quote format vs inline `[record_id]` markers
+
+The problem statement suggests `[rec_abc123]` markers inline in prose. Block quotes after each paragraph were chosen instead. Inline markers require the LLM to track citation-to-claim mapping mid-sentence, which increases the chance of misattribution. Paragraph-then-quotes is a simpler contract: write the claim, then prove it. It also produces cleaner output for a markdown renderer and makes the regex parser unambiguous.
+
+### Programmatic checks for verbatim/citation, LLM only for coherence
+
+Verbatim accuracy and citation correctness are evaluated programmatically (substring match + record ID lookup). An LLM judge could handle fuzzy matches better, but introduces its own errors and adds cost to every evaluation run. For binary factual checks — "is this text present in this record?" — deterministic is strictly better. Coherence is the one dimension that genuinely requires judgement about prose quality, so LLM-as-judge is reserved for that alone (~$0.002/query at eval time, not production time).
 
 ---
 
