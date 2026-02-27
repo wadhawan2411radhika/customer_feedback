@@ -64,7 +64,7 @@ Key prompt decisions and their rationale:
 - **Group related claims** — "Do not write one sentence per record" prevents a list-like answer when multiple records say similar things
 - **Quote from `verbatim_feedback` only** — explicitly forbidden from quoting the summary
 - **Omit rather than fabricate** — if no verbatim text supports a claim, skip the quote; this proved critical for preventing hallucinations
-- **One quote per line** — makes the parser's regex unambiguous
+- **One quote per line** — as per requirement and makes the parser's regex unambiguous
 
 ---
 
