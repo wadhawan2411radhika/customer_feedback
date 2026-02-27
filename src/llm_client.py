@@ -51,71 +51,61 @@ class OpenAIClient:
         return prompt
 
     def _build_enhanced_prompt(self, query: str, search_results: list[SearchResult]) -> str:
-        """Build context-aware prompt with raw feedback for inline quote extraction."""
+        """Build prompt that produces prose + attributed block quotes."""
+        
         context_parts = []
-
         for i, result in enumerate(search_results, 1):
-            # Extract from nested structure per the data schema
+            record_id = result.feedback_summary['attributes']['feedback_record_id']['string']['values'][0]
+            raw_content = result.feedback_record['attributes']['content']['string']['values'][0]
+            summary = result.content
+
             context_parts.append(
-                f"[Source {i}]\n"
-                f"feedback_record_id: {result.feedback_summary['attributes']['feedback_record_id']['string']['values'][0]}\n"
-                f"Summary: {result.content}\n"
-                f"Original feedback (verbatim): {result.feedback_record['attributes']['content']['string']['values'][0]}"
+                f"[RECORD {i}]\n"
+                f"feedback_record_id: {record_id}\n"
+                f"summary: {summary}\n"
+                f"verbatim_feedback: {raw_content}"
             )
 
-        context = "\n\n---\n\n".join(context_parts)
+        context = "\n\n".join(context_parts)
 
-        prompt = f"""You are a product insights analyst answering questions based on user feedback data.
+        prompt = f"""You are a product insights analyst. Answer the question below using the provided user feedback.
 
-        You have access to two types of context for each source:
-        - A **summary** (paraphrased overview of the feedback)
-        - A **verbatim feedback** (exact original user text inside <verbatim_feedback> tags)
+    ## Feedback Records
+    {context}
 
-        Context:
-        {context}
+    ## Question
+    {query}
 
-        ---
+    ## Instructions
 
-        Question: {query}
+    **Prose:** Write a fluent, paragraph-form answer synthesizing the summaries. 
+    Group related points together — do not write one sentence per record.
 
-        Instructions:
+    **Quotes:** After each prose paragraph, add verbatim block quotes that support the claims in that paragraph.
 
-        Summary instructions:
-        1. Based on the feedback summaries above, provide a comprehensive answer to the question. If the feedback doesn't contain relevant information, say so clearly.
-        2. Write a fluent, coherent answer using the summaries as your structural guide.
+    Rules for quotes:
+    - Copy text EXACTLY from `verbatim_feedback` — not from `summary`
+    - You may quote a substring, but it must match character-for-character
+    - Format every quote on its own line like this:
+    > "exact text copied from verbatim_feedback" — feedback_record_id
+    - If a paragraph is supported by multiple records, add one quote per line
+    - Never fabricate a quote or record ID
+    - If no verbatim text supports a claim, omit the quote rather than inventing one
 
-        Quote instructions:
-        1. After every claim from summary, immediately support it with a verbatim quote from the <verbatim_feedback> tag of the relevant source.
-        2. Quotes MUST be formatted EXACTLY like this — a markdown block quote followed by the record ID:
+    ## Output Format
 
-        > "<verbatim_feedback" — feedback_record_id
+    Write in this repeating structure:
 
-        3. STRICT RULES for quotes:
-        - The quote must be a verbatim substring of the text inside followed by ">" tag — do NOT paraphrase
-        - Do NOT fabricate quotes or record IDs
-        - Do NOT quote from the summary — only from <verbatim_feedback>
-        - Do NOT collect all quotes at the end — each must follow the claim it supports in the following line
-        4. One claim can be supported by multiple quotes from different records — add each on its own line followed by ">" tag
-        5. If no verbatim text supports a claim, state it without a quote rather than fabricating one.
-        6. Verbatim quotes should be in the next line after summary
+    Paragraph making one or more related claims from the feedback.
 
-        Feedback record id instructions:
-        1. Each inline quote shall be supported by feedback record id
+    > "verbatim quote supporting a claim above" — feedback_record_id
+    > "another verbatim quote if relevant" — feedback_record_id
 
-        ## OUTPUT FORMAT:
+    Next paragraph making different claims.
 
-        Summary 1 followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
-        Summary 2 followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
-        ..
-        Summary n followed by ">" tags followed by "<verbatim quotes" followed by feedback record id
+    > "verbatim quote" — feedback_record_id
 
-        Example of output format:
-
-        Users frequently complain about performance degradation after updates.
-        > "the app was much better before the update, now it freezes constantly" — rec_abc123
-        > "every time I update it gets slower and slower" — rec_def456
-
-        Answer:"""
+    Answer:"""
 
         return prompt
 
